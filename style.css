@@ -1,0 +1,2219 @@
+@font-face {
+    font-family: 'Avenir Next Cyr';
+    src: url('fonts/AvenirNextCyr-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir Next Cyr';
+    src: url('fonts/AvenirNextCyr-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir Next Cyr';
+    src: url('fonts/AvenirNextCyr-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #011418;
+    color: #fff;
+    font-family: 'Avenir Next Cyr', sans-serif;
+    -webkit-font-smoothing: antialiased; /* Делает шрифт чище */
+}
+
+.main-screen {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    min-width: 1200px;
+}
+
+/* ФОНОВАЯ ЗАГЛУШКА */
+.bg-neuron {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    z-index: -1;
+}
+
+.bg-neuron img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Заставляет картинку корректно заполнять экран */
+    opacity: 0.9;
+}
+
+/* ЛЕВАЯ КНОПКА (104px от края) */
+.side-consultation {
+    position: absolute;
+    left: 104px;
+    top: 180px;
+    z-index: 10;
+}
+
+.consult-btn {
+    text-decoration: none; display: flex; flex-direction: column;
+    align-items: center; gap: 30px;
+}
+.consult-img-wrapper {
+    width: auto; height: auto; background: rgba(0, 224, 255, 0.1);
+    border-radius: 50%; display: flex; justify-content: center;
+    align-items: center; box-shadow: 0 0 25px rgba(0, 224, 255, 0.2);
+    position: relative; transition: all 0.4s ease;
+}
+
+.hover-image {
+    width: 45px; /* Увеличил иконку с 30px до 45px */
+    height: auto;
+    z-index: 2;
+}
+
+/* ВЕРТИКАЛЬНЫЙ ТЕКСТ */
+.vertical-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 11px;
+    letter-spacing: 5px; /* Увеличил расстояние между буквами */
+    color: #00E0FF;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.fallback-icon {
+    position: absolute;
+    z-index: 1;
+}
+
+.consult-btn:hover .consult-img-wrapper {
+    box-shadow: 0 0 30px rgba(0, 224, 255, 0.6);
+    transform: scale(1.05);
+}
+
+/* ОСНОВНОЙ КОНТЕНТ */
+.content-wrapper {
+    position: relative;
+    z-index: 5;
+    padding-left: 360px;  
+    padding-right: 360px; 
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* ХЕДЕР */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 90px; 
+}
+
+.logo-img {
+    height: auto; /* Примерная высота логотипа */
+    width: auto;
+    display: block;
+}
+
+.phone-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.phone-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.phone-link:hover {
+    color: #00E0FF;
+}
+
+/* ГЕРОЙ-СЕКЦИЯ */
+.hero {
+    max-width: 650px;
+}
+
+.greeting {
+    font-size: 16px;
+    color: #8da1aa;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.main-title-container {
+    margin-bottom: 30px;
+}
+
+.main-title-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Отступ между текстом-описанием и блоком гарантии — 77px */
+.description {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 77px; /* ТОЧНО ПО ЗАПРОСУ */
+    color: #e0e0e0;
+    letter-spacing: 0.5px;
+}
+
+/* Отступ между блоком гарантии и кнопкой записи — 101px */
+.guarantee {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 101px; /* ТОЧНО ПО ЗАПРОСУ */
+}
+
+.g-icon {
+    width: auto;
+    height: auto;
+    border: 1px solid rgba(0, 224, 255, 0.4);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.g-info h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #ffffff;
+}
+
+.g-info p {
+    font-size: 13px;
+    color: #00E0FF;
+    line-height: 1.5;
+}
+
+/* ГЛАВНАЯ КНОПКА */
+.cta-button {
+    background: linear-gradient(90deg, #00E0FF 0%, #00b8d4 100%);
+    color: #ffffff;
+    border: none;
+    padding: 22px 30px;
+    font-family: 'Avenir Next Cyr', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase; /* На всякий случай добавил капс */
+    letter-spacing: 3px; /* Добавил больше места между буквами */
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 224, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    box-shadow: 0 8px 30px rgba(0, 224, 255, 0.6);
+    transform: translateY(-2px);
+    letter-spacing: 3.5px; /* Небольшой эффект при наведении */
+}
+
+/* СКРОЛЛ */
+.scroll-down {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+}
+
+.scroll-label {
+    writing-mode: vertical-rl;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #8da1aa;
+}
+
+.mouse-icon {
+    width: 22px;
+    height: 38px;
+    border: 2px solid rgba(0, 224, 255, 0.5);
+    border-radius: 15px;
+    position: relative;
+}
+
+.wheel {
+    width: 4px;
+    height: 6px;
+    background: #00E0FF;
+    border-radius: 2px;
+    position: absolute;
+    left: 50%;
+    top: 6px;
+    transform: translateX(-50%);
+    animation: scroll-anim 1.5s infinite;
+}
+
+.reasons-section {
+    padding: 100px 360px;
+    position: relative; /* Чтобы можно было позиционировать элементы внутри */
+    
+    /* УСТАНОВКА ФОНА */
+    background-image: url('accor/fone6.png'); /* Путь к картинке фона 2-го блока */
+    width: auto;
+    height: auto;      /* Растягивает фото на весь блок */
+    background-position: center; /* Центрирует изображение */
+    background-repeat: no-repeat;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* ЗАГОЛОВОК БЛОКА (по 1-му скриншоту) */
+.reasons-title {
+    font-family: 'Avenir Next Cyr', sans-serif;
+    font-weight: 500; /* Medium */
+    font-size: 54px;   /* Точно по макету */
+    line-height: auto;
+    letter-spacing: 0%;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    margin-bottom: 70px;
+}
+
+/* СЕТКА КАРТОЧЕК */
+.reasons-grid {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет карточкам переноситься на второй ряд */
+    gap: 25px;       /* Расстояние между карточками */
+    width: 100%;
+    max-width: 1200px; /* Ограничение общей ширины контейнера */
+}
+
+/* КАРТОЧКА */
+.reason-card {
+    flex: 1 1 calc(25% - 25px); min-width: 260px;
+    min-height: 220px; padding: 35px 25px; border-radius: 12px;
+    background: linear-gradient(180deg, #022335 0%, #0C373D 100%);
+    border: 1px solid rgba(74, 207, 236, 0.3);
+    display: flex; flex-direction: column; gap: 20px;
+    transition: all 0.3s ease;
+}
+.card-icon-placeholder {
+    width: 60px; height: 60px; display: flex; justify-content: center;
+    align-items: center; background: transparent; border: none;
+}
+
+.reason-card:hover {
+    transform: translateY(-5px);
+    border-color: #00E0FF;
+}
+
+/* ТЕКСТ В КАРТОЧКАХ (по 7-му скриншоту) */
+.card-text {
+    font-family: 'Avenir Next Cyr', sans-serif;
+    font-weight: 500; /* Medium */
+    font-size: 15px;   /* Точно по макету */
+    line-height: 1.4;
+    color: #FFFFFF;
+    letter-spacing: 0%;
+}
+
+/* Стиль самой картинки-иконки */
+.card-icon {
+    width: 100%; /* Занимает всю ширину контейнера */
+    height: auto; /* Сохраняет пропорции */
+    object-fit: contain; /* Не дает картинке обрезаться */
+}
+
+@media (max-width: 1100px) {
+    .reason-card {
+        flex: 0 1 calc(50% - 25px); /* по 2 в ряд на планшетах */
+    }
+}
+
+/* БЛОК "ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ - ЭТО КРУТО?" */
+.ai-cool-section {
+    position: relative;
+    padding: 120px 360px; /* Соблюдаем наши стандартные боковые отступы */
+    background-color: #011418;
+    display: flex;
+    align-items: center;
+    min-height: 800px;
+    overflow: hidden; /* Чтобы элементы фона не вызывали горизонтальный скролл */
+}
+
+/* ЗАГЛУШКА ИЛЛЮСТРАЦИИ СПРАВА */
+.ai-bg-illustration {
+    position: absolute;
+    width: auto;
+    height: auto;
+}
+
+/* Стили для будущей картинки фона */
+.ai-absolute-bg {
+    position: absolute;
+    top: 50%;
+    right: 0; /* Прижимаем к правому краю */
+    transform: translateY(-50%); /* Центрируем по вертикали */
+    height: 100%; /* Растягиваем по высоте секции */
+    width: auto;
+    z-index: 1; /* Отправляем на задний план */
+    pointer-events: none; /* Чтобы нельзя было случайно выделить или кликнуть вместо кнопки */
+}
+
+.ai-content {
+    position: relative;
+    z-index: 2; /* Контент всегда выше фона */
+    max-width: 800px;
+}
+
+/* ЗАГОЛОВОК */
+.ai-title {
+    font-family: 'Avenir Next Cyr', sans-serif;
+    font-weight: 500; /* Medium */
+    font-size: 48px;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+/* СПИСОК ПРЕИМУЩЕСТВ */
+.ai-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+/* ПУНКТ СПИСКА */
+.ai-list-item {
+    display: flex;
+    align-items: flex-start;
+    /* Убираем левый паддинг отсюда, чтобы фон начинался от края */
+    padding: 18px 25px 18px 0px; 
+    
+    background: linear-gradient(90deg, rgba(2, 35, 53, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    border-radius: 4px;
+    margin-bottom: 10px; /* Отступ между самими плашками */
+}
+
+/* ЗАГЛУШКА ДЛЯ ГАЛОЧКИ */
+.ai-icon-placeholder {
+   /* Вот здесь задаем те самые 25 пикселей от края до иконки */
+    margin-left: 25px; 
+    
+    /* Расстояние от иконки до текста (черточка на макете будет внутри или рядом) */
+    margin-right: 20px; 
+    
+    width: auto; 
+    height: auto;
+    flex-shrink: 0;
+    margin-top: -2px; /* Центрируем иконку относительно первой строки текста */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Убираем рамки у заглушки, когда добавишь реальный img */
+.ai-icon-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ТЕКСТ В СПИСКЕ */
+.ai-list-text {
+    font-family: 'Avenir Next Cyr', sans-serif;
+    font-size: 15px;
+    line-height: 1.4;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.importance-section {
+    padding: 100px 360px;
+    background-color: #011418;
+    background-image: url('vazno/fone4.png'); /* Фоновое изображение всего блока */
+    height: 785px;
+    width: auto;
+    object-fit: cover; 
+    object-position: bottom; 
+    position: relative;
+}
+
+.importance-title {
+    font-family: 'Avenir Next Cyr', sans-serif;
+    font-size: 48px;
+    font-weight: 500;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    margin-bottom: 80px;
+}
+
+.importance-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px 40px; /* Отступы между парами */
+}
+
+.importance-item {
+    display: flex;
+    align-items: center;
+    flex: 0 1 calc(50% - 20px); /* Две пары в ряд */
+    gap: 30px;
+}
+
+/* Настройка для пар, где текст должен быть слева (нижний ряд) */
+.importance-item.reverse {
+    justify-content: flex-end;
+}
+
+/* 1. Добавляем плавность переходов в основной класс обертки */
+.info-image-wrapper {
+    position: relative;
+    flex-shrink: 0;
+    width: 280px;
+    height: 180px;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
+}
+
+/* 2. Плавность для самого свечения (псевдоэлемента) */
+.info-image-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 20%;
+    right: 20%;
+    height: 10px;
+    background: #00E0FF;
+    filter: blur(15px);
+    opacity: 0.4; /* В обычном состоянии чуть тусклее */
+    border-radius: 50%;
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+/* Дополнительно: мягкое появление текста при наведении на блок */
+.importance-item:hover .info-text {
+    color: #00E0FF;
+    transition: color 0.3s ease;
+}
+/* ТЕКСТ */
+.info-text {
+    font-family: 'Avenir Next Cyr', sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #FFFFFF;
+    max-width: 250px;
+}
+
+.why-us-section {
+    position: relative;
+    padding: 120px 360px;
+    background-color: #011418;
+    background-image: url('why/fone5.png'); /* Твой фон с мозгом */
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+    min-height: 900px;
+    display: flex;
+    align-items: center;
+}
+
+.why-us-content {
+    max-width: 750px; /* Чтобы текст не перекрывал правую часть фона */
+    position: relative;
+    z-index: 2;
+}
+
+/* ЗАГОЛОВОК (теперь без свечения) */
+.why-us-title {
+    font-family: 'Avenir Next Cyr', sans-serif;
+    font-size: 48px;
+    font-weight: 500;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 50px;
+}
+
+
+/* ПОДСВЕЧИВАНИЕ ТЕКСТА В НАЧАЛЕ ПУНКТОВ (оставляем только здесь) */
+.highlight {
+    color: #00E0FF;
+    font-weight: 600;
+    /* Если хочешь убрать свечение и здесь, просто удали следующую строку */
+    text-shadow: 0 0 10px rgba(0, 224, 255, 0.4); 
+    margin-right: 4px;
+}
+
+/* Эффект свечения для заголовка и выделенных слов */
+.glow-text {
+    text-shadow: 0 0 15px rgba(0, 224, 255, 0.6);
+}
+
+.why-us-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 60px;
+}
+
+.why-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.why-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.why-icon img {
+    width: 100%;
+    height: auto;
+}
+
+.why-text {
+    font-family: 'Avenir Next Cyr', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+/* Наш стандартный голубой акцент без лишних эффектов */
+.blue-accent {
+    color: #00E0FF;
+}
+
+.curriculum-subtitle {
+    font-family: 'Avenir Next Cyr', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #FFFFFF;
+    margin-bottom: 50px;
+    opacity: 0.8;
+}
+
+/* ГЛАВНАЯ СЕКЦИЯ С ФОНОМ */
+.curriculum-section {
+    position: relative; /* Обязательно для позиционирования полоски */
+    width: 100%;
+    padding: 120px 0;
+    
+    /* ФОН */
+    background-image: url('accor/fone6.png'); 
+    background-size: cover;
+    background-position: top center; /* Фиксируем верх, чтобы фон тянулся вниз */
+    background-repeat: no-repeat;
+    background-color: #011418;
+
+    /* Тянущийся контейнер */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto; /* Блок будет расти сам */
+    transition: all 0.5s ease; /* Плавное расширение фона */
+}
+
+.bottom-line {
+    position: absolute;
+    bottom: 0;      /* Всегда в самом низу секции */
+    left: 0;
+    width: 100%;    /* Растягиваем на всю ширину */
+    height: auto;   /* Сохраняем пропорции картинки */
+    pointer-events: none; /* Чтобы не мешала кликам */
+    z-index: 10;
+}
+
+/* КОНТЕЙНЕР ДЛЯ КОНТЕНТА (тот самый класс) */
+.curriculum-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    /* ОТСТУПЫ */
+    padding-bottom: 0px;
+}
+
+/* ЗАГОЛОВОК (в стиле прошлых блоков) */
+.curriculum-title {
+    font-family: 'Avenir Next Cyr', sans-serif;
+    font-size: 48px;
+    font-weight: 500;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+/* Стили Аккордеона */
+.accordion-item {
+    background: rgba(2, 35, 53, 0.5); border: 1px solid rgba(0, 224, 255, 0.2);
+    border-radius: 8px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease;
+}
+.accordion-header {
+    padding: 20px 25px; display: flex; justify-content: space-between;
+    align-items: center; cursor: pointer;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #00E0FF;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00E0FF;
+}
+
+.level-name {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.duration {
+    color: #00E0FF;
+    font-size: 14px;
+}
+
+.badge {
+    background: #00E0FF;
+    color: #011418;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 2px;
+}
+
+.arrow {
+    width: 20px;
+    transition: transform 0.3s ease;
+}
+
+/* Скрытое тело списка */
+.accordion-body {
+    max-height: 0; /* Изначально закрыто */
+    padding: 0 25px;
+    opacity: 0;
+    transition: all 0.3s ease-out;
+}
+
+/* Состояние при открытии */
+.accordion-item.active .accordion-body {
+    max-height: 2000px; /* Достаточно большое число */
+    padding: 20px 25px 40px 25px;
+    opacity: 1;
+}
+
+.accordion-item.active .arrow {
+    transform: rotate(180deg);
+}
+
+/* СТИЛИ ДЛЯ ВАРИАНТА "В РАЗРАБОТКЕ" (СЕРЫЙ) */
+.accordion-item.disabled {
+    filter: grayscale(1);
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.accordion-item.disabled .status-dot {
+    background: #888;
+    box-shadow: none;
+}
+
+/* Стили уроков внутри */
+.curriculum-lesson {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.lesson-number {
+    width: 30px;
+    height: 30px;
+    background: #00E0FF;
+    color: #011418;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.lesson-info h3 {
+    font-size: 16px;
+    color: #00E0FF;
+    margin: 0 0 10px 0;
+}
+
+.lesson-info p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.curriculum-section .cta-button {
+    margin-top: 59px;
+    display: block; /* Чтобы маржины работали корректно */
+}
+
+.author-section {
+    position: relative;
+    width: 100%; /* Фиксированная ширина макета */
+    height: 737px; /* Фиксированная высота макета */
+    margin: 0 auto; /* Центрируем весь блок на странице */
+    background-image: url('author/fone7.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.author-container {
+    position: relative; /* Обязательно для дочернего абсолютного элемента */
+    width: 100%;   /* Ширина макета, чтобы координаты совпадали */
+    margin: 0 auto;
+    height: 100%;
+}
+
+.author-info {
+    position: absolute;
+    left: 360px; /* Твой стандартный отступ слева */
+    top: 120px;  /* Примерный отступ сверху для заголовка */
+    max-width: 600px; /* Стандартный левый отступ контента */
+}
+
+.author-title {
+    font-family: 'Avenir Next Cyr', sans-serif;
+    font-size: 48px;
+    font-weight: 500;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.author-description p {
+    font-family: 'Avenir Next Cyr', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #FFFFFF;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+/* Подпись справа внизу */
+.author-name-tag {
+    position: absolute;
+    
+    /* Координаты точно по ТЗ */
+    right: 564px; 
+    bottom: 94px;
+    
+    /* Запрещаем перенос текста */
+    white-space: nowrap; 
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 10;
+}
+
+.author-name {
+    font-family: 'Avenir Next Cyr', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #00E0FF;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.author-rank {
+    font-family: 'Avenir Next Cyr', sans-serif;
+    font-size: 14px;
+    color: #FFFFFF;
+    opacity: 0.8;
+    margin-top: 4px; /* Расстояние между именем и должностью */
+    line-height: 1.2;
+}
+
+/* Наша стандартная нижняя полоска */
+.author-section .bottom-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* Контейнер для картинки должен быть "якорем" */
+.card-image-wrapper {
+    position: relative;
+    overflow: visible; /* Чтобы кнопка не обрезалась по краям */
+}
+.news-grid-container {
+    position: relative;
+    padding-left: 360px;
+    /* Убедитесь, что overflow: visible, иначе кнопки по бокам обрежутся */
+    overflow: visible; 
+}
+
+/* Общие стили кнопок */
+.nav-arrow {
+    position: absolute;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 20;
+    /* Центрируем по вертикали относительно изображения (высота 220px / 2) */
+    top: 110px; 
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+
+.nav-arrow img {
+    width: 24px; /* Размер самой иконки стрелки внутри круга */
+    height: auto;
+}
+
+/* Левая стрелка: темная, на левом краю первой карточки */
+.prev {
+    left: 360px; /* Совпадает с padding-left контейнера */
+    background: rgba(1, 20, 24, 0.8);
+    border: 1px solid rgba(0, 224, 255, 0.2);
+    transform: translate(-50%, -50%); /* Сдвигаем на половину ширины влево */
+}
+
+/* Правая стрелка: голубая, на правом краю ТРЕТЬЕЙ карточки */
+.next {
+    /* Расчет: отступ 360 + (3 карточки * 340) + (2 отступа по 30) */
+    left: calc(360px + (340px * 3) + (30px * 2));
+    background: #00E0FF;
+    box-shadow: 0 0 20px rgba(0, 224, 255, 0.5);
+    transform: translate(-50%, -50%);
+}
+
+.nav-arrow:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.next:hover {
+    box-shadow: 0 0 30px rgba(0, 224, 255, 0.8);
+}
+/* ЗАГОЛОВОК: точно как в блоках выше */
+.news-title {
+    font-family: 'Avenir Next Cyr', sans-serif;
+    font-size: 48px;
+    font-weight: 500; /* Medium */
+    color: #FFFFFF;
+    text-transform: uppercase;
+    line-height: 1.1;
+    letter-spacing: 0; /* Или по макету */
+}
+
+.news-date {
+    position: absolute;
+    top: 20px;
+    right: 25px; /* Отступ от правого края картинки */
+    
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Расстояние между иконкой и текстом */
+    
+    color: #FFFFFF;
+    font-family: 'Avenir Next Cyr', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* Добавляем иконку календаря */
+.news-date::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    /* Вставь сюда путь к маленькой белой иконке календаря */
+    background-image: url('path/to/calendar-icon.svg'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+}
+
+.news-section {
+    padding: 100px 0;
+    background-color: #011418;
+    /* Добавляем фон */
+    background-image: url('accor/fone6.png'); /* Укажите путь к вашему фону */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Обязательно для позиционирования линии */
+    position: relative; 
+    overflow: hidden;
+}
+
+/* Выравнивание заголовка по сетке сайта */
+.news-header {
+    padding-left: 360px;
+    padding-right: 360px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 70px;
+}
+
+.news-grid-container {
+    position: relative;
+    padding-left: 360px; /* Сдвигаем начало сетки */
+}
+
+/* Эффект ТУМАНА справа */
+.news-grid-container::after {
+    content: '';
+    position: absolute;
+    /* Смещаем на 100px вверх, чтобы перекрыть padding-top секции */
+    top: -300px; 
+    /* Высота контейнера (100%) + padding-top (100px) + padding-bottom (100px) */
+    height: calc(100% + 650px); 
+    right: 0;
+    width: 600px; /* Немного увеличим ширину для мягкости */
+    
+    /* Обновляем градиент: делаем его более насыщенным и глубоким */
+    background: linear-gradient(to right, 
+        rgba(1, 20, 24, 0) 0%, 
+        rgba(0, 224, 255, 0.03) 20%, /* Легкий голубой оттенок в начале */
+        rgba(1, 20, 24, 0.8) 90%,    /* Переход в основной темный цвет */
+        #011418 100%                 /* Полная непрозрачность в конце */
+    );
+    
+    z-index: 5;
+    pointer-events: none;
+}
+
+.all-news-btn {
+    display: inline-block;
+    background: transparent; /* Прозрачный фон, как на макете */
+    color: #00E0FF;          /* Голубой текст */
+    border: 1px solid #00E0FF; /* Тонкая голубая рамка */
+    
+    padding: 20px 30px;
+    border-radius: 10px;     /* Скругление углов */
+    
+    font-family: 'Avenir Next Cyr', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 3px;     /* Тот самый разряд между буквами */
+    
+    transition: all 0.3s ease;
+}
+
+.all-news-btn:hover {
+    background: rgba(0, 224, 255, 0.05);
+    box-shadow: 0 0 15px rgba(0, 224, 255, 0.2);
+}
+
+.news-grid {
+    display: grid;
+    /* Указываем фиксированную ширину карточек, чтобы они не сжимались */
+    grid-template-columns: repeat(4, 340px); 
+    gap: 30px;
+}
+
+.news-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    border-radius: 15px;
+    overflow: visible; /* Чтобы стрелки могли чуть выходить за края если надо */
+}
+
+.card-image-wrapper img:not(.slider-arrow img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* Свечение под картинками */
+.card-image-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 20px;
+    height: 2px;
+    background: #00E0FF;
+    box-shadow: 0 0 15px 3px #00E0FF;
+    z-index: 1;
+}
+
+/* Текст карточек */
+.card-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.more-link {
+    color: #00E0FF;
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: 1px solid #00E0FF;
+    width: fit-content;
+}
+
+/* ВАКАНСИИ */
+.vacancies-section {
+    background-image: url('news/fone_vac.png'); /* Путь к фону вакансий */
+}
+
+.vacancy-details {
+    margin-bottom: 20px;
+}
+
+.v-row {
+    display: flex;
+    align-items: baseline;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 8px;
+}
+
+.v-row .dots {
+    flex-grow: 1;
+    border-bottom: 2px dotted rgba(255, 255, 255, 0.2);
+    margin: 0 10px;
+}
+
+.main-footer {
+    background-image: url('footer/fone9.png');
+    padding: 70px 360px 30px 360px; /* Боковые отступы как во всем проекте */
+    position: relative;
+    box-shadow: 0 -10px 20px rgba(0, 224, 255, 0.15);
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Выравнивание по нижнему краю контента */
+    margin-bottom: 50px;
+}
+
+/* Логотип */
+.footer-logo-img {
+    height: auto;
+    max-width: 280px; /* Отрегулируйте под размер вашего изображения */
+}
+
+/* Блок контактов и соцсетей */
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Прижать все к правому краю */
+    gap: 25px;
+}
+
+.footer-contacts {
+    display: flex;
+    gap: 40px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.contact-icon {
+    width: 20px; /* Размер иконок почты и телефона */
+    height: auto;
+}
+
+.contact-item a {
+    color: #00E0FF;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: 'Avenir Next Cyr', sans-serif;
+    border-bottom: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.contact-item a:hover {
+    border-bottom-color: #00E0FF;
+}
+
+/* Соцсети */
+.footer-socials {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.social-label {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+.social-icons-img {
+    height: 24px; /* Размер всей полоски соцсетей */
+    width: auto;
+}
+
+/* Нижняя панель */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 25px;
+    display: flex;
+    justify-content: center; /* Центрируем копирайт */
+    align-items: center;
+    position: relative;
+}
+
+.copyright-text {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0;
+}
+
+.developed-by {
+    position: absolute;
+    right: 0; /* Разработчик прижат к правому краю внутри паддингов */
+}
+
+.developer-img {
+    height: 30px;
+    width: auto;
+}
+
+/* Кнопка "Наверх" слева */
+.footer-scroll-up {
+    position: absolute;
+    left: 104px; /* Координата как у кнопки консультации в хедере */
+    top: -30px;
+    z-index: 100;
+}
+
+.up-btn {
+    width: 60px;
+    height: 60px;
+    background: #00E0FF;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(0, 224, 255, 0.5);
+    transition: 0.3s;
+}
+
+.up-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(0, 224, 255, 0.8);
+}
+
+/* =========================================
+   МОДАЛЬНОЕ ОКНО
+   ========================================= */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(1, 20, 24, 0.85); /* Темный полупрозрачный фон */
+    backdrop-filter: blur(5px); /* Легкое размытие фона за окном */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Класс для показа модального окна */
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: linear-gradient(180deg, #104C5A 0%, #061F29 100%);
+    border-radius: 15px;
+    width: 100%;
+    max-width: 450px;
+    padding: 50px 40px;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 224, 255, 0.1);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    transition: transform 0.3s ease;
+}
+
+.modal-close:hover {
+    transform: scale(1.1) rotate(90deg);
+}
+
+.modal-title {
+    font-family: 'Avenir Next Cyr', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+    line-height: 1.3;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 11px;
+    color: #00E0FF;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    background-color: #0F3B4A; /* Цвет полей ввода */
+    border: 1px solid rgba(0, 224, 255, 0.1);
+    border-radius: 6px;
+    padding: 15px 18px;
+    color: #FFFFFF;
+    font-family: 'Avenir Next Cyr', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group input::placeholder,
+.input-group select:invalid {
+    color: #8da1aa;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #00E0FF;
+    box-shadow: 0 0 10px rgba(0, 224, 255, 0.2);
+}
+
+/* Стилизация стрелочки селекта */
+.input-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%2300E0FF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    cursor: pointer;
+}
+
+.input-group select option {
+    background-color: #0F3B4A;
+    color: #fff;
+}
+
+.modal-submit {
+    margin-top: 10px;
+    width: 100%;
+    padding: 18px;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.reasons-section,
+.ai-cool-section,
+.importance-section,
+.why-us-section {
+    position: relative; /* Обязательно для позиционирования линии */
+}
+
+.reasons-section::after,
+.ai-cool-section::after,
+.importance-section::after,
+.why-us-section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px; 
+    background-image: url('accor/line.png');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 10;
+}
+
+@keyframes scroll-anim {  /* анимация для иконки мыши */
+    0% { top: 6px; opacity: 1; }
+    100% { top: 22px; opacity: 0; }
+}
+
+/*АДАПТИВНОСТЬ*/
+@media (max-width: 1200px) {
+    .main-screen {
+        min-width: 100%;
+    }
+    .content-wrapper, 
+    .reasons-section, 
+    .ai-cool-section, 
+    .importance-section, 
+    .why-us-section, 
+    .news-header,
+    .news-grid-container,
+    .main-footer {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .bg-neuron {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .bg-neuron img {
+        /* Центрируем картинку или сдвигаем чуть вправо, чтобы нейрон был виден */
+        object-position: 70% center; 
+        object-fit: cover;
+    }
+
+    /* Прячем плавающую кнопку, чтобы не перекрывала текст */
+    .side-consultation {
+        display: none; 
+    }
+    .reasons-section {
+        background-size: cover; /* Заставляет картинку растягиваться на весь блок без дырок */
+        background-position: center;
+        padding-top: 80px; /* Немного уменьшим отступы для планшета */
+        padding-bottom: 80px;
+    }
+    .scroll-down {
+        bottom: 10px; /* Было 100px. Чем меньше число, тем ниже элемент */
+    }
+
+    /* Дополнительно: чтобы текст в шапке не сливался с фоном */
+    .hero {
+        position: relative;
+        z-index: 5;
+    }
+
+    /* --- БЛОК 7 ПРИЧИН --- */
+    .reason-card {
+        flex: 1 1 calc(50% - 25px); /* Делаем строго по 2 карточки в ряд */
+    }
+
+    /* --- БЛОК "ВАЖНО ПОНИМАТЬ" --- */
+    .importance-section {
+        height: auto !important; 
+        padding: 60px 40px !important; /* Уменьшаем гигантские отступы 360px */
+        background-size: cover;
+    }
+    /* 2 колонки здесь будут слишком тесными. Выстраиваем пункты в один столбец */
+    .importance-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 50px !important;
+        max-width: 800px;
+        margin: 0 auto; /* Центрируем всю колонку */
+    }
+    .importance-item, 
+    .importance-item.reverse {
+        flex: 1 1 100% !important;
+        justify-content: flex-start !important;
+        flex-direction: row !important; /* Картинка и текст в ряд */
+        align-items: flex-start !important;
+        gap: 25px !important;
+        text-align: left !important;
+    }
+    .importance-item .info-text {
+        max-width: 100% !important;
+        font-size: 15px !important;
+        line-height: 1.5;
+        margin: 0 !important;
+    }
+    .importance-item.reverse .info-image-wrapper {
+        order: -1; /* Перемещает картинку в начало, даже если в HTML она стоит после текста */
+    }
+
+    .curriculum-content {
+        padding-left: 40px;
+        padding-right: 40px;
+        width: 100%; /* Гарантируем, что контейнер занимает всю ширину с учетом паддингов */
+        box-sizing: border-box; /* Чтобы паддинги не расширяли блок за пределы экрана */
+    }
+
+    /* Если заголовок или кнопка внутри этого блока смещены, 
+       можно дополнительно проверить их выравнивание */
+    .curriculum-title {
+        text-align: left;
+    }
+
+    /* --- БЛОК "ПОЧЕМУ ИМЕННО НАШ КУРС" --- */
+    .why-us-content {
+        max-width: 65%; /* Ограничиваем ширину текста, чтобы он не наезжал на фоновый мозг справа */
+    }
+
+    /* --- БЛОК "КТО ВЕДЕТ КУРС" --- */
+    .author-info {
+        left: 40px;
+        max-width: 60%; /* Чтобы текст не перекрывал портрет автора */
+    }
+    .author-name-tag {
+        right: 40px;
+    }
+    .author-section {
+        background-position: 65% center; /* Поиграй с процентами (20%, 40% и т.д.), чтобы лицо встало идеально */
+    }
+
+    /* --- БЛОК НОВОСТЕЙ И ВАКАНСИЙ --- */
+    .news-grid-container {
+        padding-left: 40px; /* Синхронизируем паддинг */
+    }
+    .news-grid {
+        grid-template-columns: repeat(2); /* 2 карточки в ряд */
+        gap: 20px;
+    }
+    .news-grid-container::after {
+        display: none; /* Убираем эффект тумана, чтобы карточки не перекрывались */
+    }
+
+    /* Корректируем стрелки слайдера */
+    .prev {
+        left: 20px; 
+        transform: translateY(-50%);
+    }
+    .next {
+        left: auto;
+        right: 20px;
+        transform: translateY(-50%);
+    }
+
+    /* --- ФУТЕР --- */
+    .footer-container {
+        flex-wrap: wrap; /* Позволяем блокам переноситься */
+        justify-content: center;
+        gap: 40px;
+    }
+    .footer-right {
+        align-items: center; /* Центрируем контакты, если они перенеслись на новую строку */
+    }
+}
+
+/* =========================================
+   МОБИЛЬНЫЕ ТЕЛЕФОНЫ (до 768px) - ТОЧНАЯ НАСТРОЙКА
+   ========================================= */
+@media (max-width: 768px) {
+    /* 1. Базовые отступы секций (делаем их компактнее) */
+    .content-wrapper, 
+    .reasons-section, 
+    .ai-cool-section, 
+    .importance-section,
+    .news-header,
+    .news-grid-container,
+    .main-footer {
+        padding: 50px 30px; /* Сверху/снизу 50px, по бокам 20px */
+    }
+
+    /* Настройки для модального окна на мобилках */
+    .modal-content {
+        max-width: 90%;
+        padding: 40px 25px 30px 25px; /* Уменьшаем отступы по бокам */
+    }
+    .why-us-section {
+        /* На мобилках часто лучше смотрится 20-25%, чтобы основной элемент фона ушел в сторону от текста */
+        background-position: 68% center !important;
+        background-size: cover;
+    }
+
+    .modal-title {
+        font-size: 20px;
+        margin-bottom: 25px;
+    }
+
+    .input-group input,
+    .input-group select {
+        padding: 12px 15px; /* Уменьшаем внутренние отступы полей */
+    }
+
+    .modal-submit {
+        padding: 15px;
+        font-size: 12px;
+    }
+
+    /* 2. Типографика (уменьшаем заголовки под экран телефона) */
+    .reasons-title, 
+    .ai-title, 
+    .importance-title, 
+    .why-us-title, 
+    .curriculum-title, 
+    .author-title, 
+    .news-title {
+        font-size: 28px; /* Оптимальный размер для длинных слов */
+        line-height: 1.2;
+        text-align: center;
+        margin-bottom: 35px;
+    }
+
+    /* 3. Шапка и первый экран (Hero) */
+    .header {
+        flex-direction: column; /* Логотип и телефон друг под другом */
+        gap: 15px;
+        margin-bottom: 40px;
+    }
+    
+    .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .main-title-img {
+        max-width: 90%; /* Чтобы картинка-заголовок не упиралась в края */
+    }
+
+    .description {
+        margin-bottom: 30px;
+        font-size: 15px;
+    }
+
+    /* Блок гарантии */
+    .guarantee {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+        margin-bottom: 40px;
+    }
+
+    /* Кнопки "Записаться" (делаем на всю ширину) */
+    .cta-button {
+        width: 100%;
+        padding: 20px 10px;
+        font-size: 11px; /* Чуть меньше шрифт, чтобы влезло длинное слово "ОЗНАКОМИТЕЛЬНЫЙ" */
+        letter-spacing: 1px;
+        text-align: center;
+    }
+
+    /* 4. Блок "7 Причин" */
+    .reasons-grid {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .reason-card {
+        padding: 25px 20px;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* 5. ИИ - это круто (убираем лишние отступы) */
+    .ai-list-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+    .ai-icon-placeholder {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+
+
+    /* 6. Важно понимать */
+    .importance-section {
+        height: auto !important; 
+        padding: 60px 20px !important; /* Даем контенту место по бокам */
+    }
+
+    /* 2. Делаем сетку строго в одну колонку */
+    .importance-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 40px !important; /* Расстояние между блоками "картинка + текст" */
+    }
+
+    /* 3. Сбрасываем выравнивание элементов и отступы */
+    .importance-item, 
+    .importance-item.reverse {
+        display: flex !important;
+        flex-direction: column !important; /* Текст всегда под картинкой */
+        align-items: center !important; /* Центрируем всё */
+        text-align: center !important;
+        gap: 20px !important;
+        width: 100% !important;
+    }
+
+    /* 4. Принудительно ставим картинку ПЕРВОЙ в блоке */
+    .importance-item.reverse .info-image-wrapper {
+        order: -1 !important;
+    }
+
+    /* 5. Настраиваем размеры картинок, чтобы они не были огромными */
+    .info-image-wrapper {
+        width: 100% !important;
+        max-width: 320px !important; /* Ограничиваем ширину картинки */
+        height: 200px !important;
+        flex-shrink: 0;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    /* 6. Текст делаем читабельным и убираем ограничения по ширине */
+    .info-text {
+        max-width: 100% !important;
+        font-size: 15px !important;
+        line-height: 1.6 !important;
+        margin: 0 !important;
+        color: #FFFFFF !important;
+        padding: 0 10px;
+    }
+
+    /* 7. Почему мы (иконка галочки над текстом) */
+    .why-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+
+    /* 8. Учебный план (Аккордеон) */
+    .accordion-item {
+        margin-bottom: 15px; /* Даем блокам "дышать" */
+        border-radius: 10px;
+    }
+
+    /* Убираем серый фильтр с неактивных блоков, чтобы плашка и точка светились голубым */
+    .accordion-item.disabled {
+        filter: none;
+        opacity: 0.9;
+    }
+    
+    /* Возвращаем голубое свечение точке в заблокированных блоках */
+    .accordion-item.disabled .status-dot {
+        background: #00E0FF;
+        box-shadow: 0 0 10px #00E0FF;
+    }
+
+    .accordion-header {
+        padding: 20px 15px; 
+    }
+
+    .header-left {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .level-name {
+        font-size: 16px;
+    }
+
+    .badge {
+        margin-top: 5px;
+        padding: 4px 8px;
+        border-radius: 4px;
+        display: inline-block;
+    }
+
+    /* ВОЗВРАЩАЕМ кружок с цифрой слева от текста */
+    .curriculum-lesson {
+        flex-direction: row !important; 
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 25px; /* Отступ между самими уроками */
+    }
+
+    .lesson-number {
+        width: 26px;
+        height: 26px;
+        font-size: 13px;
+        flex-shrink: 0; /* Запрещаем кружку сплющиваться в овал */
+        margin-top: 2px;
+    }
+
+    .lesson-info h3 {
+        font-size: 14px;
+        margin-bottom: 8px;
+        line-height: 1.3;
+    }
+
+    .lesson-info p {
+        font-size: 12px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.6); /* Делаем описание сероватым, как на макете */
+    }
+
+    /* Настройка кнопки под аккордеоном */
+    .curriculum-section .cta-button {
+        margin-top: 20px;
+        width: 100%;
+        border-radius: 8px;
+    }
+    /* Добавляем боковые отступы для блока "Что я узнаю" */
+    .curriculum-content {
+        padding-left: 30px;
+        padding-right: 30px;
+        width: 100%;
+        box-sizing: border-box; /* Чтобы отступы не увеличивали общую ширину экрана */
+    }
+
+    /* 9. Кто ведет курс */
+    .author-section {
+    height: auto !important; /* Убираем фиксированную высоту из десктопа  */
+    min-height: 1100px !important; /* Даем место, чтобы портрет внизу поместился */
+    padding: 60px 30px !important; /* Отступы по бокам  */
+    display: flex !important;
+    flex-direction: column !important;
+    background-image: url('author/fone7m.png') !important;
+    background-position: center 80% !important; /* Сдвигаем фон так, чтобы лицо было внизу */
+    background-size: cover !important;
+    position: relative !important;
+    overflow: visible !important;
+}
+
+.author-info {
+    position: static !important; /* Выключаем абсолютное позиционирование  */
+    max-width: 100% !important;
+    text-align: left !important; /* Весь текст влево  */
+}
+
+.author-title {
+    text-align: left !important;
+    font-size: 28px !important;
+    margin-bottom: 30px !important;
+}
+
+.author-description p {
+    text-align: left !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 25px !important;
+}
+
+/* Имя и должность — отправляем в самый низ к портрету  */
+.author-name-tag {
+    position: absolute !important;
+    left: 260px !important; 
+    top: 920px !important;
+    right: auto !important;
+    transform: none !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+}
+
+.author-name {
+    font-size: 24px !important;
+    color: #00E0FF !important;
+    margin-bottom: 5px !important;
+}
+
+.author-rank {
+    font-size: 14px !important;
+    color: #fff !important;
+    opacity: 0.8 !important;
+}
+
+    /* 10. Новости и Вакансии */
+    .news-section {
+    padding: 60px 0 !important; /* Обнуляем боковые отступы секции, чтобы слайдер был во всю ширину */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+.news-header {
+    width: 100% !important;
+    padding: 0 30px !important; /* Заголовок и кнопка имеют отступ 30px */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin-bottom: 30px !important;
+}
+
+.news-title {
+    font-size: 26px !important;
+    text-align: center !important;
+    margin-bottom: 20px !important;
+}
+
+/* Контейнер слайдера */
+.news-grid-container {
+    width: 100% !important;
+    padding: 0 30px !important; /* Контейнер тоже с отступами */
+    position: relative !important;
+    margin-bottom: 40px !important;
+}
+
+/* Сама сетка превращается в ленту */
+.news-grid {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 20px !important;
+    padding-bottom: 10px !important;
+    scrollbar-width: none; /* Прячем скроллбар */
+}
+
+.news-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.news-card {
+    min-width: 100% !important; /* Одна карточка занимает всё видимое место */
+    scroll-snap-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.nav-arrow {
+    display: flex !important;
+    position: absolute !important;
+    top: 110px !important; /* Середина картинки */
+    transform: translateY(-50%) !important;
+    width: 44px !important;
+    height: 44px !important;
+    z-index: 10 !important;
+    border-radius: 50% !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+/* Левая стрелка: темная, как в десктопе */
+.prev {
+    left: 10px !important;
+    background: rgba(1, 20, 24, 0.8) !important;
+    border: 1px solid rgba(0, 224, 255, 0.2) !important;
+}
+
+/* Правая стрелка: голубая */
+.next {
+    right: 10px !important;
+    background: #00E0FF !important;
+    border: none !important;
+    box-shadow: 0 0 20px rgba(0, 224, 255, 0.5) !important;
+}
+
+/* Фикс для иконок внутри (чтобы не были гигантскими) */
+.nav-arrow img {
+    width: 18px !important;
+    height: auto !important;
+}
+
+/* Текст карточки выравниваем по левому краю, как на скрине */
+.card-content {
+    text-align: left !important;
+    padding-top: 15px !important;
+}
+
+.card-title {
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+}
+
+.card-text {
+    font-size: 13px !important;
+    margin-bottom: 10px !important;
+}
+
+/* Кнопка "ВСЕ..." в самом низу */
+.all-news-btn {
+    width: calc(100% - 60px) !important; /* Ширина с учетом отступов */
+    max-width: 320px !important;
+    padding: 15px !important;
+    font-size: 12px !important;
+    border: 1px solid #00E0FF !important;
+    text-align: center !important;
+}
+
+/* Убираем "туман", он на мобилках всё портит */
+.news-grid-container::after {
+    display: none !important;
+}
+    /* 1. Главный экран (нейрон) */
+    .bg-neuron {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .bg-neuron img {
+        object-position: center; /* Центрируем нейрон */
+    }
+
+    /* 2. Блок "7 причин" */
+    .reasons-section {
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* 4. Блок "Важно понимать" */
+    .importance-section {
+        background-size: cover;
+        background-position: center top; /* Фокусируемся на верхней части картинки */
+    }
+
+    /* 5. Блок "Почему именно наш курс" */
+    .why-us-section {
+        background-size: cover;
+        background-position: center; /* Раньше было right, из-за чего фон съезжал */
+        min-height: auto; /* Убираем жесткую высоту в 900px */
+    }
+
+    /* 6. Блок "Кто ведет курс" */
+    .author-section {
+        background-position: center top; /* Держим фокус на лице автора (сверху) */
+    }
+    .scroll-down {
+        display: none;
+    }
+    /* Убираем лишнюю пустоту на главном экране */
+    .main-screen {
+        min-height: auto;
+    }
+    
+    .content-wrapper {
+        height: auto; /* Отключаем высоту в 100vh */
+        padding-bottom: 60px; /* Добавляем аккуратный отступ снизу */
+    }
+    /* =========================================
+   ГЛОБАЛЬНОЕ ВЫРАВНИВАНИЕ ПО ЛЕВОМУ КРАЮ (КРОМЕ ФУТЕРА)
+   ========================================= */
+
+/* Заголовки всех секций */
+.reasons-title, 
+.ai-title, 
+.importance-title, 
+.why-us-title, 
+.curriculum-title, 
+.author-title, 
+.news-title {
+    text-align: left !important;
+}
+
+/* 1. Главный экран (Hero) */
+.hero {
+    align-items: flex-start !important;
+    text-align: left !important;
+}
+
+.greeting,
+.description,
+.main-title-container {
+    text-align: left !important;
+    width: 100% !important;
+}
+
+/* Блок гарантии (возвращаем иконку слева от текста) */
+.guarantee {
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    gap: 15px !important;
+}
+
+.g-info {
+    text-align: left !important;
+}
+
+/* 2. Блок "7 Причин" */
+.reason-card {
+    align-items: flex-start !important;
+    text-align: left !important;
+}
+
+/* 3. Блок "ИИ - это круто" */
+.ai-list-item {
+    align-items: flex-start !important;
+    text-align: left !important;
+}
+
+/* 4. Блок "Почему мы" */
+.why-item {
+    align-items: flex-start !important;
+    text-align: left !important;
+}
+
+/* 5. Блок "Что я узнаю" (Аккордеон) */
+.curriculum-content,
+.header-left {
+    align-items: flex-start !important;
+    text-align: left !important;
+}
+
+/* 6. Новости и Вакансии */
+.news-header {
+    align-items: flex-start !important;
+    text-align: left !important;
+}
+.main-footer {
+    padding: 60px 20px 30px 20px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: visible !important; /* Меняем hidden на visible, чтобы кнопка не обрезалась */
+}
+
+.footer-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; /* Выравниваем по центру */
+    gap: 40px !important;
+    width: 100% !important;
+    margin-bottom: 30px !important;
+}
+
+.footer-left {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+}
+
+.footer-logo-img {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+.footer-right {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 30px !important;
+}
+
+/* Почта и телефон друг под другом */
+.footer-contacts {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 15px !important;
+}
+
+.contact-item {
+    justify-content: center !important;
+    width: 100% !important;
+}
+
+/* Текст "Мы в соц сетях" над иконками */
+.footer-socials {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+/* Нижняя полоска с копирайтом */
+.footer-bottom {
+    display: flex !important;
+    flex-direction: column !important; /* Копирайт и лого разработчика в столбик */
+    align-items: center !important;
+    text-align: center !important;
+    gap: 20px !important;
+    padding-top: 25px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Возвращаем логотип разработчика в нормальный поток (чтобы не улетал вправо) */
+.developed-by {
+    position: static !important;
+}
+
+/* Кнопка "Наверх" - строго по центру */
+.footer-scroll-up {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: -30px !important;
+}
+
+}
