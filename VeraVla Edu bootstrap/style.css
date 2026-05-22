@@ -1,0 +1,471 @@
+/* =========================================
+   1. БАЗОВЫЕ НАСТРОЙКИ И ШРИФТЫ
+   ========================================= */
+html { scroll-behavior: smooth; }
+
+@font-face { font-family: 'Avenir Next Cyr'; src: url('fonts/AvenirNextCyr-Bold.ttf') format('truetype'); font-weight: bold; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Avenir Next Cyr'; src: url('fonts/AvenirNextCyr-Medium.ttf') format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Avenir Next Cyr'; src: url('fonts/AvenirNextCyr-Regular.ttf') format('truetype'); font-weight: normal; font-style: normal; font-display: swap; }
+
+:root {
+    --bs-body-bg: #011418;
+    --bs-body-color: #fff;
+    --bs-font-sans-serif: 'Avenir Next Cyr', sans-serif;
+}
+
+body {
+    background-color: #011418;
+    color: #fff;
+    font-family: 'Avenir Next Cyr', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; }
+p { margin-bottom: 0; }
+
+/* УНИВЕРСАЛЬНАЯ КНОПКА */
+.cta-button {
+    background: linear-gradient(90deg, #00E0FF 0%, #00b8d4 100%);
+    color: #ffffff;
+    border: none;
+    padding: 22px 30px;
+    font-family: 'Avenir Next Cyr', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 224, 255, 0.3);
+    transition: all 0.3s ease;
+    display: inline-block !important;
+    width: auto !important;
+}
+.cta-button:hover {
+    box-shadow: 0 8px 30px rgba(0, 224, 255, 0.6);
+    transform: translateY(-2px);
+    letter-spacing: 3.5px;
+}
+
+/* =========================================
+   2. ГЛАВНЫЙ ЭКРАН (HERO)
+   ========================================= */
+.main-screen { position: relative; min-height: 100vh; overflow: hidden; }
+
+.bg-neuron { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+.bg-neuron img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
+
+/* ЛЕВАЯ КНОПКА (Консультация) */
+.side-consultation { position: absolute; left: 104px; top: 180px; z-index: 10; }
+.consult-btn { display: flex; flex-direction: column; align-items: center; gap: 30px; }
+.consult-img-wrapper { width: 100px; height: 100px; background: rgba(0, 224, 255, 0.1); border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 0 25px rgba(0, 224, 255, 0.2); transition: all 0.4s ease; }
+.hover-image { width: 45px; height: auto; z-index: 2; }
+.consult-btn:hover .consult-img-wrapper { box-shadow: 0 0 30px rgba(0, 224, 255, 0.6); transform: scale(1.05); }
+.vertical-text { writing-mode: vertical-rl; transform: rotate(180deg); font-size: 11px; letter-spacing: 5px; color: #00E0FF; text-transform: uppercase; font-weight: 500; }
+
+/* КОНТЕНТ ХЕДЕРА И HERO */
+.phone-link { color: #fff; font-size: 16px; font-weight: 500; letter-spacing: 0.5px; transition: color 0.3s ease; }
+.phone-link:hover { color: #00E0FF; }
+.greeting { font-size: 16px; color: #8da1aa; letter-spacing: 0.5px; }
+.description { font-size: 16px; line-height: 1.6; color: #e0e0e0; letter-spacing: 0.5px; }
+
+/* Блок гарантии */
+.g-icon { border: 1px solid rgba(0, 224, 255, 0.4); border-radius: 12px; padding: 15px; display: flex; justify-content: center; align-items: center; }
+.g-info h3 { font-size: 18px; font-weight: bold; color: #ffffff; }
+.g-info p { font-size: 13px; color: #00E0FF; line-height: 1.5; }
+
+/* СКРОЛЛ */
+.scroll-label { writing-mode: vertical-rl; font-size: 13px; letter-spacing: 2px; color: #8da1aa; }
+.mouse-icon { width: 22px; height: 38px; border: 2px solid rgba(0, 224, 255, 0.5); border-radius: 15px; position: relative; }
+.wheel { width: 4px; height: 6px; background: #00E0FF; border-radius: 2px; position: absolute; left: 50%; top: 6px; transform: translateX(-50%); animation: scroll-anim 1.5s infinite; }
+@keyframes scroll-anim { 0% { top: 6px; opacity: 1; } 100% { top: 22px; opacity: 0; } }
+
+/* =========================================
+   3. СЕКЦИЯ "7 ПРИЧИН"
+   ========================================= */
+.reasons-section { position: relative; width: 100%; background-image: url('accor/fone6.png'); background-position: center; background-repeat: no-repeat; background-size: cover; }
+.reasons-title { font-weight: 500; font-size: 54px; color: #FFFFFF; text-transform: uppercase; }
+
+.reason-card { padding: 35px 25px; 
+    border-radius: 12px; 
+    background: linear-gradient(180deg, #022335 0%, #0C373D 100%); 
+    border: 1px solid rgba(74, 207, 236, 0.3); 
+    display: flex; 
+    flex-direction: column; gap: 20px; transition: all 0.3s ease; }
+.reason-card:hover { transform: translateY(-5px); border-color: #00E0FF; }
+.card-text { font-weight: 500; font-size: 15px; line-height: 1.4; color: #FFFFFF; }
+.card-icon-placeholder { width: 60px; height: 60px; display: flex; 
+    justify-content: center; align-items: center; background: transparent; border: none; }
+.card-icon { width: 100%; height: auto; object-fit: contain; }
+
+.reasons-section::after { content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 40px; background-image: url('accor/line.png'); background-size: cover; background-position: center bottom; pointer-events: none; z-index: 10; }
+.blue-accent { color: #00E0FF; }
+
+/* =========================================
+   4. СЕКЦИЯ "ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ - ЭТО КРУТО?"
+   ========================================= */
+.ai-cool-section { background-image: url('ai_is_cool/fone3.png'); background-size: cover; background-position: right center; background-repeat: no-repeat; }
+.ai-title { font-weight: 500; font-size: 48px; line-height: 1.2; color: #FFFFFF; text-transform: uppercase; }
+.ai-list-item { background: linear-gradient(90deg, rgba(2, 35, 53, 0.8) 0%, rgba(0, 0, 0, 0) 100%); }
+.ai-icon-placeholder { width: 24px; height: 24px; }
+.ai-icon-placeholder img { width: 100%; height: 100%; object-fit: contain; }
+.ai-list-text { font-size: 15px; line-height: 1.5; color: #FFFFFF; }
+.ai-cool-section::after { content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 40px; background-image: url('accor/line.png'); background-size: cover; background-position: center bottom; pointer-events: none; z-index: 10; }
+
+/* =========================================
+   5. СЕКЦИЯ "ВАЖНО ПОНИМАТЬ ЧТО"
+   ========================================= */
+.importance-section { background-color: #011418; background-image: url('vazno/fone4.png'); background-size: cover; background-position: bottom; background-repeat: no-repeat; min-height: 785px; width: 100%; padding: 100px 0; }
+.importance-title { font-size: 48px; font-weight: 500; color: #FFFFFF; text-transform: uppercase; margin-bottom: 80px; }
+
+.info-image-wrapper { position: relative; flex-shrink: 0; width: 280px; height: 180px; transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); cursor: pointer; }
+.info-image-wrapper::after { content: ''; position: absolute; bottom: -5px; left: 20%; right: 20%; height: 10px; background: #00E0FF; filter: blur(15px); opacity: 0.4; border-radius: 50%; transition: all 0.4s ease; z-index: -1; }
+.info-image-wrapper:hover { transform: scale(1.03); }
+.info-image-wrapper:hover::after { opacity: 0.8; filter: blur(20px); }
+
+.info-text { font-size: 15px; line-height: 1.5; color: #FFFFFF; max-width: 250px; transition: color 0.3s ease; }
+.importance-item:hover .info-text { color: #00E0FF; }
+.importance-section::after { content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 40px; background-image: url('accor/line.png'); background-size: cover; background-position: center bottom; pointer-events: none; z-index: 10; }
+
+/* =========================================
+   6. СЕКЦИЯ "ПОЧЕМУ ИМЕННО НАШ КУРС?"
+   ========================================= */
+.why-us-content { max-width: 750px; position: relative; z-index: 2; }
+.why-us-section { background-image: url('why/fone5.png'); background-size: cover; background-position: center right; background-repeat: no-repeat; }
+.why-us-title { font-size: 48px; font-weight: 500; color: #FFFFFF; text-transform: uppercase; line-height: 1.2; }
+.highlight { color: #00E0FF; font-weight: 600; text-shadow: 0 0 10px rgba(0, 224, 255, 0.4); }
+.why-icon { width: 24px; height: 24px; }
+.why-text { font-size: 16px; line-height: 1.5; color: #FFFFFF; }
+.why-us-section::after { content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 40px; background-image: url('accor/line.png'); background-size: cover; background-position: center bottom; pointer-events: none; z-index: 10; }
+
+/* =========================================
+   7. СЕКЦИЯ "ЧТО Я УЗНАЮ" (АККОРДЕОН)
+   ========================================= */
+.curriculum-section { position: relative; width: 100%; background-image: url('accor/fone6.png'); background-size: cover; background-position: top center; background-repeat: no-repeat; background-color: #011418; }
+.curriculum-title { font-size: 48px; font-weight: 500; color: #FFFFFF; text-transform: uppercase; line-height: 1.1; }
+.curriculum-subtitle { font-size: 16px; color: #FFFFFF; }
+
+.custom-accordion-item { background: rgba(2, 35, 53, 0.4) !important; border: 1px solid rgba(0, 224, 255, 0.15) !important; border-radius: 8px !important; margin-bottom: 20px; overflow: hidden; transition: all 0.3s ease; }
+.custom-accordion-item:not(.disabled):hover, .custom-accordion-item:not(.disabled):focus-within { border-color: rgba(0, 224, 255, 0.5) !important; }
+.custom-accordion-button { background: transparent !important; color: #FFFFFF !important; padding: 25px 30px !important; box-shadow: none !important; border: none !important; display: flex; justify-content: space-between; align-items: center; width: 100%; }
+.accordion-button::after { display: none !important; }
+.level-name { font-weight: 500; font-size: 18px; color: #fff; }
+.duration { font-size: 15px; }
+.dev-badge { font-size: 12px; font-weight: 700; letter-spacing: 1px; }
+
+.arrow-wrapper { width: 32px; height: 32px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 6px; display: flex; justify-content: center; align-items: center; transition: all 0.3s ease; background: transparent; }
+.arrow { width: 12px; height: auto; transition: transform 0.3s ease; opacity: 0.6; }
+.custom-accordion-button:not(.collapsed) .arrow-wrapper { border-color: rgba(0, 224, 255, 0.5); background: rgba(0, 224, 255, 0.05); }
+.custom-accordion-button:not(.collapsed) .arrow { transform: rotate(180deg); opacity: 1; }
+.custom-accordion-body { padding: 0 30px 40px 30px !important; background: transparent; }
+
+.lesson-number { width: 30px; height: 30px; background: #00E0FF; color: #011418; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: 800; }
+.lesson-info h3 { font-size: 16px; color: #00E0FF; margin: 0 0 10px 0; }
+.lesson-info p { font-size: 14px; line-height: 1.6; margin: 0; }
+.curriculum-lesson { display: flex; gap: 20px; margin-top: 25px; }
+.custom-accordion-item.disabled { opacity: 0.6; background: rgba(1, 20, 24, 0.5) !important; }
+.curriculum-section::after { content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 40px; background-image: url('accor/line.png'); background-size: cover; background-position: center bottom; pointer-events: none; z-index: 10; }
+.curriculum-section .cta-button { margin-top: 59px; }
+
+/* =========================================
+   8. СЕКЦИЯ "НОВОСТИ И ОБЪЯВЛЕНИЯ"
+   ========================================= */
+.news-section { background-color: #011418; background-image: url('accor/fone6.png'); background-size: cover; background-position: center; background-repeat: no-repeat; overflow: hidden; }
+.news-section::before { content: ''; position: absolute; top: 0; right: 0; height: 100%; width: 450px; background: linear-gradient(to right, rgba(1, 20, 24, 0) 0%, rgba(1, 20, 24, 0.8) 70%, #011418 100%); z-index: 6; pointer-events: none; }
+.news-title { font-size: 48px; font-weight: 500; color: #FFFFFF; text-transform: uppercase; line-height: 1.1; }
+
+.all-news-btn { display: inline-block; background: transparent; color: #00E0FF; border: 1px solid #00E0FF; padding: 15px 25px; border-radius: 10px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; transition: all 0.3s ease; text-decoration: none; }
+.all-news-btn:hover { background: rgba(0, 224, 255, 0.05); box-shadow: 0 0 15px rgba(0, 224, 255, 0.2); }
+
+.news-card { display: flex; flex-direction: column; gap: 20px; }
+.nav-arrow { position: absolute; width: 62px; height: 62px; border-radius: 50%; border: none; z-index: 20; top: 110px; transform: translateY(-50%); transition: all 0.3s ease; display: flex; justify-content: center; align-items: center; }
+.nav-arrow img { width: 24px; height: auto; }
+.prev { left: -31px; background: rgba(1, 20, 24, 0.8); border: 1px solid rgba(0, 224, 255, 0.2); }
+.next { right: 20px; background: #00E0FF; box-shadow: 0 0 20px rgba(0, 224, 255, 0.5); }
+.nav-arrow:hover { transform: translateY(-50%) scale(1.1); }
+.next:hover { box-shadow: 0 0 30px rgba(0, 224, 255, 0.8); }
+
+.card-image-wrapper { width: 100%; height: 220px; border-radius: 15px; position: relative;}
+.card-image-wrapper img { width: 100%; height: 100%; object-fit: cover; border-radius: 15px; }
+.card-image-wrapper::after { content: ''; position: absolute; bottom: 0; left: 20px; right: 20px; height: 2px; background: #00E0FF; box-shadow: 0 0 15px 3px #00E0FF; z-index: 1; }
+.news-date { position: absolute; top: 20px; right: 25px; color: #FFFFFF; font-size: 12px; z-index: 3; }
+.card-title { font-size: 16px; font-weight: bold; color: #fff; line-height: 1.4; margin-bottom: 0;}
+.card-text { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.5; margin: 0; }
+.more-link { color: #00E0FF; font-size: 14px; border-bottom: 1px solid #00E0FF; width: fit-content; text-decoration: none;}
+.news-section::after { content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 40px; background-image: url('accor/line.png'); background-size: cover; background-position: center bottom; pointer-events: none; z-index: 10; }
+
+/* =========================================
+   9. ФУТЕР
+   ========================================= */
+.main-footer { background-color: #011418; background-image: url('footer/fone9.png'); background-size: cover; background-position: center; background-repeat: no-repeat; box-shadow: 0 -10px 20px rgba(0, 224, 255, 0.15); }
+.hover-border-info { border-color: transparent !important; }
+.hover-border-info:hover { border-color: #00E0FF !important; }
+.transition-300 { transition: all 0.3s ease; }
+
+.footer-scroll-up { position: absolute; left: 50%; transform: translateX(-50%); top: -30px; z-index: 100; }
+.up-btn { width: 60px; height: 60px; background: #00E0FF; border: none; border-radius: 50%; cursor: pointer; box-shadow: 0 0 20px rgba(0, 224, 255, 0.5); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.up-btn:hover { transform: translateY(-5px); box-shadow: 0 0 30px rgba(0, 224, 255, 0.8); }
+
+.footer-logo-img { max-width: 280px; height: auto; }
+.contact-icon { width: 20px; height: auto; }
+.contact-item a { color: #00E0FF; font-size: 16px; font-weight: 500; border-bottom: 1px solid transparent; transition: 0.3s; }
+.contact-item a:hover { border-bottom-color: #00E0FF; }
+.social-label { font-size: 10px; color: rgba(255, 255, 255, 0.5); letter-spacing: 2px; font-weight: 500; }
+.social-icons-img { height: 24px; width: auto; }
+.footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); }
+.copyright-text { font-size: 12px; color: rgba(255, 255, 255, 0.4); }
+.developed-by { position: absolute; right: 0; top: 25px; }
+.developer-img { height: 30px; width: auto; }
+
+/* =========================================
+   10. МОДАЛЬНОЕ ОКНО И ФОРМА
+   ========================================= */
+.custom-modal { backdrop-filter: blur(5px); background-color: rgba(1, 20, 24, 0.7); }
+.custom-modal-content { background: linear-gradient(180deg, #104C5A 0%, #061F29 100%) !important; border-radius: 15px !important; border: none !important; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 224, 255, 0.1) !important; }
+.modal-close-btn { position: absolute; top: 20px; right: 20px; background: transparent; border: none; cursor: pointer; display: flex; justify-content: center; align-items: center; padding: 5px; transition: transform 0.3s ease; z-index: 10; }
+.modal-close-btn:hover { transform: scale(1.1) rotate(90deg); }
+.custom-modal-content .modal-title { font-size: 24px; font-weight: 500; color: #FFFFFF; line-height: 1.3; }
+
+.custom-label { font-size: 11px !important; color: #00E0FF !important; font-weight: 600 !important; letter-spacing: 0.5px; margin-bottom: 8px !important; text-transform: uppercase; }
+.custom-input, .custom-select { background-color: #0F3B4A !important; border: 1px solid rgba(0, 224, 255, 0.1) !important; border-radius: 6px !important; padding: 15px 18px !important; color: #FFFFFF !important; font-size: 14px !important; box-shadow: none !important; }
+.custom-input::placeholder { color: #8da1aa !important; opacity: 1; }
+.custom-input:focus, .custom-select:focus { background-color: #0F3B4A !important; color: #FFFFFF !important; border-color: #00E0FF !important; box-shadow: 0 0 10px rgba(0, 224, 255, 0.2) !important; outline: none; }
+.custom-select { background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%2300E0FF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important; background-size: 12px 8px !important; cursor: pointer; }
+.custom-select option { background-color: #0F3B4A; color: #fff; }
+
+
+/* =========================================
+   АДАПТИВНОСТЬ ПЛАНШЕТЫ (до 1200px)
+   ========================================= */
+@media (max-width: 1200px) {
+    .main-screen { min-width: 100%; }
+    .content-wrapper, .bg-neuron { width: 100%; height: 100%; }
+    .bg-neuron img { object-position: 70% center; object-fit: cover; }
+    .side-consultation { display: none; }
+    .scroll-down { bottom: 10px; }
+    .hero { position: relative; z-index: 5; }
+    .curriculum-title { text-align: left; }
+    .importance-section { height: auto !important; padding: 60px 120px !important; }
+    
+    /* Стили для блока автора (если он есть в HTML) */
+    .author-info { left: 40px; max-width: 60%; }
+    .author-name-tag { right: 40px; }
+    .author-section { background-position: 65% center; }
+    
+    .news-section::before { display: none; }
+    .prev { left: 20px; transform: translateY(-50%); }
+    .next { left: auto; right: 20px; transform: translateY(-50%); }
+}
+
+/* =========================================
+   МОБИЛЬНАЯ АДАПТИВНОСТЬ (до 768px)
+   ========================================= */
+@media (max-width: 768px) {
+    .content-wrapper { padding: 50px 30px; height: auto; padding-bottom: 60px; }
+    .modal-content { max-width: 90%; padding: 40px 25px 30px 25px; }
+    .modal-title { font-size: 20px; margin-bottom: 25px; }
+    .input-group input, .input-group select { padding: 12px 15px; }
+    .modal-submit { padding: 15px; font-size: 12px; }
+
+    .ai-title, .importance-title, .why-us-title, .curriculum-title, .author-title, .news-title { font-size: 28px !important; line-height: 1.2; text-align: left !important; margin-bottom: 35px; }
+    
+    .header { flex-direction: column; gap: 15px; margin-bottom: 40px; }
+    .hero { display: flex; flex-direction: column; align-items: flex-start !important; text-align: left !important; }
+    .main-title-img { max-width: 90%; }
+    .greeting, .description, .main-title-container { text-align: left !important; width: 100% !important; margin-bottom: 30px; font-size: 15px; }
+    .importance-section { padding: 60px 20px !important; background-position: center top; }
+    .guarantee { flex-direction: row !important; align-items: flex-start !important; text-align: left !important; gap: 15px !important; margin-bottom: 40px; }
+    .g-info { text-align: left !important; }
+    .cta-button { width: 100% !important; padding: 20px 10px; font-size: 11px; letter-spacing: 1px; text-align: center; }
+    .ai-icon-placeholder { margin-bottom: 15px; }
+    .ai-absolute-bg { display: none !important; }
+
+    .info-image-wrapper { width: 100% !important; max-width: 320px !important; height: 200px !important; flex-shrink: 0; border-radius: 15px; overflow: hidden; margin: 0 auto; }
+    .info-text { max-width: 100% !important; font-size: 15px !important; line-height: 1.6 !important; margin: 0 !important; padding: 0 10px; }
+
+    .curriculum-section { padding: 60px 0 !important; }
+    .accordion-item { margin-bottom: 15px; border-radius: 10px; }
+    .accordion-item.disabled { filter: none; opacity: 0.9; }
+    .accordion-item.disabled .status-dot { background: #00E0FF; box-shadow: 0 0 10px #00E0FF; }
+    .accordion-header { padding: 20px 15px; }
+    .custom-accordion-button { padding: 20px 15px !important; flex-direction: column !important; align-items: flex-start !important; gap: 15px !important; }
+    
+    .header-left { flex-direction: column !important; align-items: flex-start !important; gap: 6px !important; }
+    .header-right { width: 100% !important; display: flex !important; justify-content: space-between !important; align-items: center !important; }
+    .level-name { font-size: 16px !important; }
+    .duration { font-size: 13px !important; }
+    .badge { margin-top: 5px; padding: 4px 8px; border-radius: 4px; display: inline-block; }
+
+    .custom-accordion-body { padding: 0 15px 30px 15px !important; }
+    .curriculum-lesson { flex-direction: row !important; align-items: flex-start !important; gap: 15px !important; margin-bottom: 25px; }
+    .lesson-number { width: 26px !important; height: 26px !important; font-size: 13px !important; flex-shrink: 0 !important; margin-top: 2px; }
+    .lesson-info h3 { font-size: 14px; margin-bottom: 8px; line-height: 1.3; }
+    .lesson-info p { font-size: 12px; line-height: 1.6; color: rgba(255, 255, 255, 0.6); }
+    .curriculum-section .cta-button { margin-top: 20px !important; width: 100% !important; padding: 20px !important; }
+
+    .card-icon-placeholder { width: 60px !important; height: 60px !important; margin: 0 auto !important; display: flex !important; justify-content: center !important; align-items: center !important; }
+    .card-icon-placeholder img { width: 100% !important; height: auto !important; object-fit: contain !important; }
+    .card-text { width: 100% !important; text-align: center !important; font-size: 15px !important; line-height: 1.5 !important; }
+
+    /* Стили автора (оставлены на всякий случай) */
+    .author-info { position: static !important; max-width: 100% !important; text-align: left !important; }
+    .author-title { font-size: 28px !important; margin-bottom: 30px !important; }
+    .author-description p { text-align: left !important; font-size: 15px !important; line-height: 1.6 !important; margin-bottom: 25px !important; }
+    .author-name-tag { position: static !important; margin-top: 30px !important; transform: none !important; align-items: flex-start !important; text-align: left !important; }
+    .author-name { font-size: 24px !important; color: #00E0FF !important; margin-bottom: 5px !important; }
+    .author-rank { font-size: 14px !important; color: #fff !important; opacity: 0.8 !important; }
+    .author-section { background-image: url('author/fone7m.png') !important; background-position: bottom !important; }
+
+    .news-title { font-size: 26px !important; text-align: center !important; margin-bottom: 20px !important; }
+    .nav-arrow { width: 44px !important; height: 44px !important; }
+    .prev { left: 10px !important; }
+    .next { right: 10px !important; }
+    .nav-arrow img { width: 18px !important; }
+    .card-content { text-align: left !important; padding-top: 15px !important; }
+    .card-title { font-size: 16px !important; line-height: 1.4 !important; }
+    .all-news-btn { width: calc(100% - 60px) !important; max-width: 320px !important; padding: 15px !important; font-size: 12px !important; text-align: center !important; margin: 0 auto; display: block; }
+    
+    .bg-neuron { width: 100%; height: 100%; }
+    .bg-neuron img { object-position: center; }
+    .scroll-down { display: none; }
+    .main-screen { min-height: auto; }
+}
+
+
+/* =========================================
+   11. СТИЛИ ДЛЯ ВСТРОЕННЫХ ВИДЖЕТОВ BOOTSTRAP
+   ========================================= */
+/* --- СТИЛИ ДЛЯ НОВЫХ ВИДЖЕТОВ BOOTSTRAP --- */
+
+/* Scrollspy & Navbar */
+body {
+    padding-top: 70px; /* Отступ для fixed-top navbar */
+}
+.nav-link {
+    color: #fff !important;
+    font-family: 'Avenir Next Cyr', sans-serif;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.nav-link:hover, .nav-link.active {
+    color: #00E0FF !important;
+}
+.nav-link.active {
+    border-bottom: 2px solid #00E0FF;
+}
+.dropdown-menu .hover-info:hover {
+    background-color: rgba(0, 224, 255, 0.1);
+    color: #00E0FF !important;
+}
+
+/* Popover кастомизация под темную тему */
+.popover {
+    background-color: #0F3B4A !important;
+    border: 1px solid #00E0FF !important;
+    box-shadow: 0 0 15px rgba(0, 224, 255, 0.2);
+}
+.popover-header {
+    background-color: #022335 !important;
+    color: #00E0FF !important;
+    border-bottom: 1px solid rgba(0, 224, 255, 0.2) !important;
+    font-family: 'Avenir Next Cyr', sans-serif;
+}
+.popover-body {
+    color: #e0e0e0 !important;
+    font-family: 'Avenir Next Cyr', sans-serif;
+    font-size: 13px;
+}
+.bs-popover-end > .popover-arrow::after { border-right-color: #0F3B4A !important; }
+.bs-popover-end > .popover-arrow::before { border-right-color: #00E0FF !important; }
+
+/* Tooltip кастомизация */
+.tooltip-inner {
+    background-color: #00E0FF;
+    color: #011418;
+    font-weight: bold;
+    font-family: 'Avenir Next Cyr', sans-serif;
+}
+.bs-tooltip-top .tooltip-arrow::before { border-top-color: #00E0FF; }
+/* =========================================================
+   ФИКСЫ ДЛЯ МОБИЛЬНОГО МЕНЮ (ПРИНУДИТЕЛЬНОЕ ВЫРАВНИВАНИЕ)
+   ========================================================= */
+
+/* 1. Форсируем мобильную панель ТОЛЬКО на экранах до 991px */
+@media (max-width: 991px) {
+    #offcanvasMenu {
+        position: fixed !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        right: 0 !important;
+        height: 100vh !important;
+        width: 320px !important;
+        max-width: 100% !important;
+        z-index: 1060 !important;
+    }
+}
+
+/* 2. Увеличиваем размер самой кнопки бургера */
+.navbar-toggler {
+    padding: 10px 14px !important;
+}
+.navbar-toggler-icon {
+    width: 34px !important;
+    height: 26px !important;
+}
+/* =========================================================
+   СТРОГИЙ ФИКС ДЛЯ КАРУСЕЛИ (ТОЛЬКО ДЛЯ МОБИЛОК И ПЛАНШЕТОВ)
+   ========================================================= */
+@media (max-width: 1200px) {
+    /* На телефонах и планшетах превращаем в свайп-ленту */
+    #newsCarousel .carousel-inner {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        gap: 20px !important;
+        scroll-snap-type: x mandatory !important;
+        scroll-behavior: smooth !important;
+        padding-bottom: 20px !important;
+        scrollbar-width: none; 
+    }
+    #newsCarousel .carousel-inner::-webkit-scrollbar { 
+        display: none; 
+    }
+    
+    /* Растворяем группирующие обертки Бутстрапа */
+    #newsCarousel .carousel-item,
+    #newsCarousel .carousel-item > .row {
+        display: contents !important;
+    }
+    
+    /* Отключаем стандартную анимацию слайдов */
+    #newsCarousel .carousel-item.active, 
+    #newsCarousel .carousel-item-next, 
+    #newsCarousel .carousel-item-prev {
+        transform: none !important;
+        transition: none !important;
+        position: static !important;
+    }
+    
+    /* Сбрасываем отступы у колонок */
+    #newsCarousel .col-12 {
+        scroll-snap-align: start !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}
+
+/* ПЛАНШЕТ (от 768px до 1200px): Строго 2 карточки на экране */
+@media (min-width: 768px) and (max-width: 1200px) {
+    #newsCarousel .col-12 {
+        flex: 0 0 calc(50% - 10px) !important; 
+        max-width: calc(50% - 10px) !important;
+    }
+}
+
+/* ТЕЛЕФОН (до 767px): Строго 1 карточка на экране */
+@media (max-width: 767px) {
+    #newsCarousel .col-12 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+}

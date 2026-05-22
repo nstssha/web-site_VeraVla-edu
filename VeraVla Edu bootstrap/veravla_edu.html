@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeraVla Edu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<!--4 scrollspy-->
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="100">
+<!--5 modal-->
+<div class="modal fade custom-modal" id="webinarModal" tabindex="-1" aria-labelledby="webinarModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content custom-modal-content">
+            
+            <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Закрыть">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00E0FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+
+            <div class="modal-body p-4 p-md-5">
+                <h2 class="modal-title mb-4" id="webinarModalLabel">
+                    <span class="blue-accent">ЗАПИСАТЬСЯ</span> НА<br>ОЗНАКОМИТЕЛЬНЫЙ<br>ВЕБИНАР
+                </h2>
+
+                <form class="custom-form">
+                    
+                    <div class="mb-3">
+                        <label for="userName" class="form-label custom-label">Ваше ФИО:</label>
+                        <input type="text" class="form-control custom-input" id="userName" placeholder="Иван Иванович Иванов" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="userPhone" class="form-label custom-label">Номер телефона:</label>
+                        <input type="tel" class="form-control custom-input" id="userPhone" placeholder="+7 (___) ___-__-__" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="userEmail" class="form-label custom-label">Ваш e-mail:</label>
+                        <input type="email" class="form-control custom-input" id="userEmail" placeholder="name@gmail.com" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="webinarDate" class="form-label custom-label">Выберите дату и время вебинара:</label>
+                        <select class="form-select custom-select" id="webinarDate" required>
+                            <option value="" disabled selected hidden>2021-12-05 18:00</option>
+                            <option value="date1">2021-12-05 18:00</option>
+                            <option value="date2">2021-12-06 18:00</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="cta-button w-100 text-center" style="padding: 18px; font-size: 14px; letter-spacing: 2px;">ЗАПИСАТЬСЯ</button>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--1 navbar-->
+<nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgba(1, 20, 24, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0, 224, 255, 0.1);">
+  <div class="container" style="max-width: 1200px;">
+    <a class="navbar-brand" href="#hero">
+      <img src="header/logo.png" alt="VeraVla edu" height="40">
+    </a>
+    
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <!--3 offcanvas-->
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasMenu" style="background-color: #011418 !important;">
+      
+      <div class="offcanvas-header border-bottom border-secondary d-lg-none">
+        <h5 class="offcanvas-title text-info">Меню</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+      </div>
+      
+      <div class="offcanvas-body d-flex flex-column flex-lg-row align-items-lg-center">
+        
+        <ul class="navbar-nav justify-content-start justify-content-lg-center flex-grow-1 pe-3 gap-2 mt-2 mt-lg-0">
+          <li class="nav-item"><a class="nav-link fs-5" href="#reasons">Почему мы?</a></li>
+          <!--2 dropdown-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle fs-5" href="#" role="button" data-bs-toggle="dropdown">Программа</a>
+            <ul class="dropdown-menu dropdown-menu-dark border-0 bg-transparent ps-3 ps-lg-0" style="background-color: #0F3B4A;">
+              <li><a class="dropdown-item text-white hover-info py-2" href="#curriculum">Junior Level</a></li>
+              <li><a class="dropdown-item text-white hover-info py-2" href="#curriculum">Senior Level</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link fs-5" href="#news">Новости</a></li>
+        </ul>
+        
+        <div class="mt-auto mt-lg-0 mb-4 mb-lg-0 pt-4 pt-lg-0 border-top border-secondary border-lg-0">
+          <a href="tel:+821075269192" class="phone-link text-info text-decoration-none fw-bold fs-5">+ 82 (10) 7526-9192</a>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+</nav>
+<section id="hero" class="main-screen d-flex flex-column">
+    
+    <div class="bg-neuron">
+        <img src="header/fone.png" alt="Фон нейрон">
+    </div>
+    
+    <div class="side-consultation d-none d-xxl-block">
+        <a href="#" class="consult-btn text-decoration-none">
+            <div class="consult-img-wrapper">
+                <img src="header/headset.png" class="hover-image" alt="consultation">
+            </div>
+            <span class="vertical-text">БЕСПЛАТНАЯ КОНСУЛЬТАЦИЯ</span>
+        </a>
+    </div>
+
+    <div class="container d-flex flex-column flex-grow-1 position-relative z-1 pt-5 pb-5" style="max-width: 1200px;">
+
+        <main class="hero row align-items-center flex-grow-1">
+            <div class="col-lg-7 col-md-10 text-center text-lg-start mx-auto mx-lg-0">
+                <p class="greeting mb-3">Добро пожаловать в онлайн школу</p>
+                
+                <div class="main-title-container mb-4">
+                    <img src="header/main-title.png" alt="VeraVla edu!" class="img-fluid w-100" style="max-width: 600px;">
+                </div>
+                
+                <p class="description mb-5 pb-lg-4">
+                    Переквалифицируйся в разработчика искусственного интеллекта<br>
+                    и получи высокооплачиваемую работу
+                </p>
+
+                <div class="guarantee d-flex flex-column flex-sm-row align-items-center align-items-sm-start justify-content-center justify-content-lg-start gap-4 mb-5 pb-lg-4">
+                    <!--6 popover-->
+                    <div class="g-icon flex-shrink-0" 
+                                tabindex="0" 
+                                data-bs-toggle="popover" 
+                                data-bs-trigger="hover focus" 
+                                data-bs-placement="right" 
+                                title="100% Возврат средств" 
+                                data-bs-content="Мы уверены в качестве курса. Если в первый месяц вы поймете, что ИИ — это не ваше, мы вернем всю сумму без скрытых комиссий и лишних вопросов."
+                                style="cursor: pointer;">
+                                <img src="header/sertif.png" alt="Гарантия" class="img-fluid" style="max-width: 60px;">
+                    </div>
+                    <div class="g-info text-center text-sm-start">
+                        <h3 class="mb-2">Мы обучаем с гарантией!</h3>
+                        <p class="mb-0">Первый месяц действует гарантия 100% возврата<br>денег, если тебя не устроят наши курсы</p>
+                    </div>
+                </div>
+
+                <button class="cta-button" data-bs-toggle="modal" data-bs-target="#webinarModal">ЗАПИСАТЬСЯ НА ОЗНАКОМИТЕЛЬНЫЙ ВЕБИНАР</button>
+            </div>
+        </main>
+    </div>
+<div class="position-absolute bottom-0 start-50 translate-middle-x pb-4 d-none d-lg-block text-center">
+        <p class="text-secondary small text-uppercase mb-3" style="letter-spacing: 2px;">Листайте вниз</p>
+        <div class="mouse-icon mx-auto">
+            <div class="wheel"></div>
+        </div>
+    </div>
+</section>
+<section id="reasons" class="reasons-section position-relative">
+    
+    <div class="container py-5">
+        
+        <h2 class="reasons-title mb-5">
+            <span class="blue-accent">7 ПРИЧИН</span> ПОЧЕМУ ИМЕННО МЫ?
+        </h2>
+        
+        <div class="row g-4 justify-content-center">
+            
+            <div class="col-12 col-sm-6 col-xl-3">
+                <div class="reason-card h-100">
+                    <div class="card-icon-placeholder">
+                        <img src="7reas/icon1.png" class="card-icon" alt="icon">
+                    </div>
+                    <p class="card-text">Ты станешь востребованным специалистом в области искусственного интеллекта</p>
+                </div>
+            </div>
+            
+            <div class="col-12 col-sm-6 col-xl-3">
+                <div class="reason-card h-100">
+                    <div class="card-icon-placeholder">
+                        <img src="7reas/icon2.png" class="card-icon" alt="icon">
+                    </div>
+                    <p class="card-text">Будешь создавать свои модели искусственного интеллекта на языке программирования Python</p>
+                </div>
+            </div>
+            
+            <div class="col-12 col-sm-6 col-xl-3">
+                <div class="reason-card h-100">
+                    <div class="card-icon-placeholder">
+                        <img src="7reas/icon3.png" class="card-icon" alt="icon">
+                    </div>
+                    <p class="card-text">Сумеешь создавать программы, связанные с компьютерным зрением и нейронными сетями</p>
+                </div>
+            </div>
+            
+            <div class="col-12 col-sm-6 col-xl-3">
+                <div class="reason-card h-100">
+                    <div class="card-icon-placeholder">
+                        <img src="7reas/icon4.png" class="card-icon" alt="icon">
+                    </div>
+                    <p class="card-text">Мы обучаем только тому, что тебе пригодится во время работы!</p>
+                </div>
+            </div>
+            
+            <div class="col-12 col-sm-6 col-xl-3">
+                <div class="reason-card h-100">
+                    <div class="card-icon-placeholder">
+                        <img src="7reas/icon5.png" class="card-icon" alt="icon">
+                    </div>
+                    <p class="card-text">Ты найдешь единомышленников, с которыми сможешь создавать свои проекты</p>
+                </div>
+            </div>
+            
+            <div class="col-12 col-sm-6 col-xl-3">
+                <div class="reason-card h-100">
+                    <div class="card-icon-placeholder">
+                        <img src="7reas/icon6.png" class="card-icon" alt="icon">
+                    </div>
+                    <p class="card-text">Мы создаем сообщество профессионалов, таких же как и мы, жаждущих развивать и изменять этот мир к лучшему с помощью IT технологий</p>
+                </div>
+            </div>
+            
+            <div class="col-12 col-sm-6 col-xl-3">
+                <div class="reason-card h-100">
+                    <div class="card-icon-placeholder">
+                        <img src="7reas/icon7.png" class="card-icon" alt="icon">
+                    </div>
+                    <p class="card-text">После успешного завершения курса, мы поможем тебе трудоустроиться в Южнокорейские IT компании!</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="ai-cool-section position-relative py-5">
+    
+    <div class="container py-5 position-relative z-2">
+        <div class="row">
+            <div class="col-12 col-lg-8 col-xl-7">
+                
+                <h2 class="ai-title mb-5">
+                    <span class="blue-accent">ИСКУССТВЕННЫЙ<br>ИНТЕЛЛЕКТ</span> - ЭТО КРУТО?
+                </h2>
+
+                <div class="ai-list d-flex flex-column gap-3 mb-5">
+                    
+                    <div class="ai-list-item d-flex align-items-start p-3 rounded">
+                        <div class="ai-icon-placeholder flex-shrink-0 me-3">
+                            <img src="ai_is_cool/icon_chek.png" alt="check" class="img-fluid">
+                        </div>
+                        <p class="ai-list-text m-0">На данный момент только в Южной Корее ищут 10,000 специалистов в области AI!</p>
+                    </div>
+
+                    <div class="ai-list-item d-flex align-items-start p-3 rounded">
+                        <div class="ai-icon-placeholder flex-shrink-0 me-3">
+                            <img src="ai_is_cool/icon_chek.png" alt="check" class="img-fluid">
+                        </div>
+                        <p class="ai-list-text m-0">Младшие разработчики искусственного интеллекта без опыта работы могут получать в Южной Корее 60,000,000 вон (51,000$) в год. Специалист со средним стажем работы может получать уже около 100,000,000 вон (85,000$) в год.</p>
+                    </div>
+
+                    <div class="ai-list-item d-flex align-items-start p-3 rounded">
+                        <div class="ai-icon-placeholder flex-shrink-0 me-3">
+                            <img src="ai_is_cool/icon_chek.png" alt="check" class="img-fluid">
+                        </div>
+                        <p class="ai-list-text m-0">В США уровень зарплат ещё выше! Младший специалист без опыта работы получает в среднем 93,000$ в год. А инженер со средним стажем работы получает уже больше 140,000$ в год!</p>
+                    </div>
+
+                    <div class="ai-list-item d-flex align-items-start p-3 rounded">
+                        <div class="ai-icon-placeholder flex-shrink-0 me-3">
+                            <img src="ai_is_cool/icon_chek.png" alt="check" class="img-fluid">
+                        </div>
+                        <p class="ai-list-text m-0">А самое вкусное то, что твоя зарплата будет расти вместе с твоими навыками. Стаж не так важен.</p>
+                    </div>
+                    
+                </div>
+
+                <button class="cta-button" data-bs-toggle="modal" data-bs-target="#webinarModal">
+                    ЗАПИСАТЬСЯ НА ОЗНАКОМИТЕЛЬНЫЙ ВЕБИНАР
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="importance-section position-relative">
+    <div class="container-fluid px-0 mx-auto" style="max-width: 1200px;">
+        
+        <h2 class="importance-title">
+            <span class="blue-accent">ВАЖНО</span> ПОНИМАТЬ ЧТО
+        </h2>
+
+        <div class="row g-4 gy-xl-5">
+            
+            <div class="col-12 col-xl-6">
+                <div class="importance-item d-flex flex-column align-items-center text-center flex-md-row align-items-md-center text-md-start gap-4">
+                    <div class="info-image-wrapper">
+                        <div class="image-placeholder w-100 h-100">
+                            <img src="vazno/im1.png" alt="img" class="w-100 h-100 object-fit-cover rounded-4">
+                        </div>
+                    </div>
+                    <p class="info-text">Искусственный интеллект - это не одна дисциплина, как думают многие, а совокупность различных между собой направлений.</p>
+                </div>
+            </div>
+
+            <div class="col-12 col-xl-6">
+                <div class="importance-item d-flex flex-column align-items-center text-center flex-md-row align-items-md-center text-md-start gap-4">
+                    <div class="info-image-wrapper">
+                        <div class="image-placeholder w-100 h-100">
+                            <img src="vazno/im2.png" alt="img" class="w-100 h-100 object-fit-cover rounded-4">
+                        </div>
+                    </div>
+                    <p class="info-text">Подготовка реально хороших специалистов требует времени, краткосрочные курсы эффекта не дают.</p>
+                </div>
+            </div>
+
+            <div class="col-12 col-xl-6">
+                <div class="importance-item d-flex flex-column align-items-center text-center flex-md-row align-items-md-center text-md-start flex-xl-row-reverse text-xl-end gap-4">
+                    <div class="info-image-wrapper">
+                        <div class="image-placeholder w-100 h-100">
+                            <img src="vazno/im3.png" alt="img" class="w-100 h-100 object-fit-cover rounded-4">
+                        </div>
+                    </div>
+                    <p class="info-text">Большинство менторов никогда не работали над реальными проектами. Они изучали все по видеоурокам и книжкам, и преподают без практики, что очень печально.</p>
+                </div>
+            </div>
+
+            <div class="col-12 col-xl-6">
+                <div class="importance-item d-flex flex-column align-items-center text-center flex-md-row align-items-md-center text-md-start flex-xl-row-reverse text-xl-end gap-4">
+                    <div class="info-image-wrapper">
+                        <div class="image-placeholder w-100 h-100">
+                            <img src="vazno/im4.png" alt="img" class="w-100 h-100 object-fit-cover rounded-4">
+                        </div>
+                    </div>
+                    <p class="info-text">На многих курсах преподают готовые/идеальные кейсы без всяких сложностей, поэтому студенты после таких курсов не могут решать реальные задачи на работе.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="why-us-section position-relative py-5">
+    <div class="container py-5 position-relative z-2">
+        <div class="row">
+            <div class="col-12 col-lg-8 col-xl-7">
+                
+                <h2 class="why-us-title mb-5">
+                    ПОЧЕМУ ИМЕННО НАШ КУРС?<br>
+                    <span class="blue-accent">ВСЕ ПРОСТО!</span>
+                </h2>
+
+                <div class="why-us-list d-flex flex-column gap-4 mb-5">
+                    
+                    <div class="why-item d-flex align-items-start gap-3">
+                        <div class="why-icon flex-shrink-0 mt-1">
+                            <img src="why/check.png" alt="v" class="w-100 h-auto">
+                        </div>
+                        <p class="why-text m-0">
+                            <span class="highlight">Объясняем</span> сложные вещи простым и доходчивым языком.
+                        </p>
+                    </div>
+
+                    <div class="why-item d-flex align-items-start gap-3">
+                        <div class="why-icon flex-shrink-0 mt-1">
+                            <img src="why/check.png" alt="v" class="w-100 h-auto">
+                        </div>
+                        <p class="why-text m-0">
+                            <span class="highlight">Обучаем</span> не просто языку программирования, или одной какой-то дисциплине, мы обучаем полностью всей специальности.
+                        </p>
+                    </div>
+
+                    <div class="why-item d-flex align-items-start gap-3">
+                        <div class="why-icon flex-shrink-0 mt-1">
+                            <img src="why/check.png" alt="v" class="w-100 h-auto">
+                        </div>
+                        <p class="why-text m-0">
+                            <span class="highlight">Ознакомляем</span> с содержанием урока только в режиме реального времени. Ты сможешь сразу задать вопрос и тут же получить ответы. Мы всегда будем рядом.
+                        </p>
+                    </div>
+
+                    <div class="why-item d-flex align-items-start gap-3">
+                        <div class="why-icon flex-shrink-0 mt-1">
+                            <img src="why/check.png" alt="v" class="w-100 h-auto">
+                        </div>
+                        <p class="why-text m-0">
+                            <span class="highlight">Обучение</span> ведет ведущий и действующий специалист в области искусственного интеллекта в Южной Корее.
+                        </p>
+                    </div>
+
+                    <div class="why-item d-flex align-items-start gap-3">
+                        <div class="why-icon flex-shrink-0 mt-1">
+                            <img src="why/check.png" alt="v" class="w-100 h-auto">
+                        </div>
+                        <p class="why-text m-0">
+                            <span class="highlight">Обучение</span> проходит в группе по 15 человек, которая внутри делится на 3 команды, и каждая команда выполняет собственный проект. Таким образом, студенты смогут прочувствовать тонкости командной разработки, и уже на этапе обучения окунуться в рабочую атмосферу AI специалиста.
+                        </p>
+                    </div>
+
+                </div>
+
+                <button class="cta-button" data-bs-toggle="modal" data-bs-target="#webinarModal">
+                    ЗАПИСАТЬСЯ НА ОЗНАКОМИТЕЛЬНЫЙ ВЕБИНАР
+                </button>
+                
+            </div>
+        </div>
+    </div>
+</section>
+<section id="curriculum" class="curriculum-section position-relative py-5">
+    
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12">
+                
+                <h2 class="curriculum-title mb-2">
+                    <span class="blue-accent">ЧТО Я УЗНАЮ</span> ИЗ ЭТИХ КУРСОВ?
+                </h2>
+                <p class="curriculum-subtitle mb-5 text-white-50">
+                    Полностью весь курс состоит из 3 частей
+                </p>
+                <!--9 accordion-->
+                <div class="accordion w-100" id="curriculumAccordion">
+                    
+                    <div class="accordion-item custom-accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button custom-accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <div class="header-left d-flex align-items-center gap-3 flex-wrap">
+                                    <span class="level-name">AI - Junior Level.</span>
+                                    <span class="duration text-white-50">Продолжительность 1 год</span>
+                                </div>
+                            <div class="header-right d-flex align-items-center">
+                <div class="arrow-wrapper">
+                    <img src="accor/arrow.png" class="arrow" alt="▼">
+                </div>
+            </div>
+        </button>
+    </h2>
+    <!--10 collapse-->
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#curriculumAccordion">
+        <div class="accordion-body custom-accordion-body">
+            
+            <div class="curriculum-lesson d-flex gap-3 mt-4">
+                <span class="lesson-number flex-shrink-0">1</span>
+                <div class="lesson-info w-100">
+                    <h3>Введение.</h3>
+                    <p class="text-white-50 mb-2">В этой секции мы познакомимся с историей человека, который переквалифицировался в специалиста по искусственному интеллекту и отвечаем на вопрос: "Стоит ли это того, чтобы потратить 2 года на изучение искусственного интеллекта?"</p>
+                    <div class="d-flex align-items-center gap-2 mt-2">
+                        <small class="text-info" style="font-size: 11px;">СЛОЖНОСТЬ:</small>
+                        <!--11 progress-->
+                        <div class="progress flex-grow-1" style="height: 6px; background-color: rgba(0,224,255,0.1);">
+                            <div class="progress-bar" role="progressbar" style="width: 25%; background-color: #00E0FF;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="curriculum-lesson d-flex gap-3 mt-4">
+                <span class="lesson-number flex-shrink-0">2</span>
+                <div class="lesson-info w-100">
+                    <h3>Введение в программирование.</h3>
+                    <p class="text-white-50 mb-2">Эта секция начинается с объяснения понятий проблемы, сути и целей искусственного интеллекта. Ты узнаешь в чем разница между данными и информацией...</p>
+                    <div class="d-flex align-items-center gap-2 mt-2">
+                        <small class="text-info" style="font-size: 11px;">СЛОЖНОСТЬ:</small>
+                        <div class="progress flex-grow-1" style="height: 6px; background-color: rgba(0,224,255,0.1);">
+                            <div class="progress-bar" role="progressbar" style="width: 50%; background-color: #00E0FF;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="curriculum-lesson d-flex gap-3 mt-4">
+                <span class="lesson-number flex-shrink-0">3</span>
+                <div class="lesson-info w-100">
+                    <h3>Введение в искусственный интеллект.</h3>
+                    <p class="text-white-50 mb-2">Эта секция показывает нам разницу между линейным и нелинейным программированием. Описывает процесс получения знаний.</p>
+                    <div class="d-flex align-items-center gap-2 mt-2">
+                        <small class="text-info" style="font-size: 11px;">СЛОЖНОСТЬ:</small>
+                        <div class="progress flex-grow-1" style="height: 6px; background-color: rgba(0,224,255,0.1);">
+                            <div class="progress-bar" role="progressbar" style="width: 75%; background-color: #00E0FF;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+                    <div class="accordion-item custom-accordion-item disabled">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button custom-accordion-button collapsed" type="button" disabled>
+                                <div class="header-left d-flex align-items-center gap-3 flex-wrap">
+                                    <span class="level-name">AI - Senior Level.</span>
+                                    <span class="duration text-white-50">Продолжительность 1.5 года.</span>
+                                </div>
+                                <div class="header-right d-flex align-items-center gap-3">
+                                    <span class="dev-badge text-white-50">В РАЗРАБОТКЕ</span>
+                                    <div class="arrow-wrapper">
+                                        <img src="accor/arrow.png" class="arrow" alt="▼">
+                                    </div>
+                                </div>
+                            </button>
+                        </h2>
+                    </div>
+
+                    <div class="accordion-item custom-accordion-item disabled">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button custom-accordion-button collapsed" type="button" disabled>
+                                <div class="header-left d-flex align-items-center gap-3 flex-wrap">
+                                    <span class="level-name">AI - Senior Level V2.0.</span>
+                                    <span class="duration text-white-50">Продолжительность 1.5 года.</span>
+                                </div>
+                                <div class="header-right d-flex align-items-center gap-3">
+                                    <span class="dev-badge text-white-50">В РАЗРАБОТКЕ</span>
+                                    <div class="arrow-wrapper">
+                                        <img src="accor/arrow.png" class="arrow" alt="▼">
+                                    </div>
+                                </div>
+                            </button>
+                        </h2>
+                    </div>
+
+                </div>
+
+                <button class="cta-button mt-5" data-bs-toggle="modal" data-bs-target="#webinarModal">ЗАПИСАТЬСЯ НА ОЗНАКОМИТЕЛЬНЫЙ ВЕБИНАР</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="news" class="news-section position-relative py-5">
+    <div class="container py-5">
+        
+        <div class="row mb-5">
+            <div class="col-12 d-flex justify-content-between align-items-center flex-wrap gap-4">
+                <h2 class="news-title m-0">ОБЪЯВЛЕНИЯ ШКОЛЫ</h2>
+                <a href="#" class="all-news-btn">ВСЕ ОБЪЯВЛЕНИЯ</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 position-relative">
+                <!--12 carousel-->
+                <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <button class="nav-arrow prev" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev" style="z-index: 10;">
+                        <img src="news/arr.png" alt="Назад">
+                        </button>
+                        <button class="nav-arrow next" type="button" data-bs-target="#newsCarousel" data-bs-slide="next" style="z-index: 10;">
+                        <img src="news/arr2.png" alt="Вперед">
+                        </button>
+
+                <div class="carousel-inner pb-4 px-4">
+        
+            <div class="carousel-item active">
+            <div class="row g-4 justify-content-center">
+                
+                <div class="col-12 col-md-4 d-flex">
+                    <div class="news-card w-100">
+                        <div class="card-image-wrapper">
+                            <img src="news/news1.png" alt="News">
+                            <span class="news-date">24 мая 2021</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title mt-3">Искусственный интеллект в медицине</h3>
+                            <p class="card-text mt-2">Искусственный интеллект - это не одна дисциплина, как думают многие, а совокупность различных между собой направлений.</p>
+                            <a href="#" class="more-link mt-3 d-inline-block">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 d-flex">
+                    <div class="news-card w-100">
+                        <div class="card-image-wrapper">
+                            <img src="news/news2.png" alt="News">
+                            <span class="news-date">25 мая 2021</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title mt-3">Нейросети для генерации изображений</h3>
+                            <p class="card-text mt-2">Искусственный интеллект - это не одна дисциплина, как думают многие, а совокупность различных между собой направлений.</p>
+                            <a href="#" class="more-link mt-3 d-inline-block">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 d-flex">
+                    <div class="news-card w-100">
+                        <div class="card-image-wrapper">
+                            <img src="news/news3.png" alt="News">
+                            <span class="news-date">26 мая 2021</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title mt-3">Машинное обучение в финансах</h3>
+                            <p class="card-text mt-2">Искусственный интеллект - это не одна дисциплина, как думают многие, а совокупность различных между собой направлений.</p>
+                            <a href="#" class="more-link mt-3 d-inline-block">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <div class="row g-4 justify-content-center">
+                
+                <div class="col-12 col-md-4 d-flex">
+                    <div class="news-card w-100">
+                        <div class="card-image-wrapper">
+                            <img src="news/news4.png" alt="News">
+                            <span class="news-date">27 мая 2021</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title mt-3">Будущее современной робототехники</h3>
+                            <p class="card-text mt-2">Искусственный интеллект - это не одна дисциплина, как думают многие, а совокупность различных между собой направлений.</p>
+                            <a href="#" class="more-link mt-3 d-inline-block">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 d-flex">
+                    <div class="news-card w-100">
+                        <div class="card-image-wrapper">
+                            <img src="news/news1.png" alt="News">
+                            <span class="news-date">28 мая 2021</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title mt-3">ИИ и квантовые вычисления</h3>
+                            <p class="card-text mt-2">Искусственный интеллект - это не одна дисциплина, как думают многие, а совокупность различных между собой направлений.</p>
+                            <a href="#" class="more-link mt-3 d-inline-block">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 d-flex">
+                    <div class="news-card w-100">
+                        <div class="card-image-wrapper">
+                            <img src="news/news2.png" alt="News">
+                            <span class="news-date">29 мая 2021</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title mt-3">Большие данные (Big Data технологии)</h3>
+                            <p class="card-text mt-2">Искусственный интеллект - это не одна дисциплина, как думают многие, а совокупность различных между собой направлений.</p>
+                            <a href="#" class="more-link mt-3 d-inline-block">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+        <div class="carousel-item">
+            <div class="row g-4 justify-content-center">
+                <div class="col-12 col-md-4 d-flex">
+                    <div class="news-card w-100">
+                        <div class="card-image-wrapper"><img src="news/news4.png" alt="News"><span class="news-date">27 мая 2021</span></div>
+                        <div class="card-content"><h3 class="card-title mt-3">Будущее робототехники</h3><a href="#" class="more-link">Подробнее</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="main-footer position-relative py-5">
+    
+    <div class="footer-scroll-up">
+        <button class="up-btn d-flex justify-content-center align-items-center" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
+                <polyline points="18 15 12 9 6 15"/>
+            </svg>
+        </button>
+    </div>
+
+    <div class="container position-relative z-2">
+        
+        <div class="row align-items-center gy-5 mb-5 pb-4 border-bottom border-secondary">
+            
+            <div class="col-12 col-lg-4 text-center text-lg-start">
+    <a href="#hero">
+        <img src="header/logo.png" alt="VeraVla edu" class="img-fluid" style="max-width: 250px; cursor: pointer;">
+    </a>
+</div>
+
+            <div class="col-12 col-lg-8">
+                
+                <div class="row align-items-center gy-4">
+                    
+                    <div class="col-12 col-md-7 d-flex flex-column flex-sm-row justify-content-center justify-content-lg-end gap-4">
+                        <div class="contact-item d-flex align-items-center gap-2">
+                            <img src="footer/mail.png" alt="Email" style="width: 20px;">
+                            <a href="mailto:veravlaedu@gmail.com" class="text-info text-decoration-none border-bottom border-transparent hover-border-info transition-300">veravlaedu@gmail.com</a>
+                        </div>
+                        <div class="contact-item d-flex align-items-center gap-2">
+                            <img src="header/phone.png" alt="Phone" style="width: 20px;">
+                            <a href="tel:+821075269192" class="text-info text-decoration-none border-bottom border-transparent hover-border-info transition-300">+ 82 (10) 7526-9192</a>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-5 d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-end gap-3">
+                        <!--7 tooltip-->
+                        <img src="footer/social-icons.png" alt="Social Media" style="height: 24px; cursor: pointer;" data-bs-toggle="tooltip" data-bs-placement="top" title="Наши социальные сети"> </div>
+                </div>
+                </div>
+        </div>
+
+        <div class="row align-items-center gy-3">
+            <div class="col-12 col-md-6 text-center text-md-start">
+                <p class="text-white-50 small m-0">Copyright © 2021 VeraVla edu. All rights reserved</p>
+            </div>
+            <div class="col-12 col-md-6 text-center text-md-end">
+                <img src="footer/afreeca-logo.png" alt="Developed by AFREECA" style="height: 30px;">
+            </div>
+        </div>
+
+    </div>
+</footer>
+<div class="toast-container position-fixed bottom-0 end-0 p-4" style="z-index: 1055;">
+    <!--8 toast-->
+    <div id="successToast" class="toast text-bg-dark border-info" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header" style="background-color: #022335; border-bottom: 1px solid #00E0FF; color: #00E0FF;">
+      <strong class="me-auto">VeraVla Edu</strong>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+    </div>
+    <div class="toast-body text-white">
+      Ваша заявка успешно отправлена! Ожидайте звонка менеджера.
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Активация Popover и Tooltip
+    document.querySelectorAll('[data-bs-toggle="popover"]').forEach(el => new bootstrap.Popover(el));
+    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
+
+    // Логика показа Toast после отправки формы
+    const form = document.querySelector('.custom-form');
+    if(form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Останавливаем перезагрузку страницы
+            
+            // Закрываем модальное окно
+            const modalEl = document.getElementById('webinarModal');
+            const modal = bootstrap.Modal.getInstance(modalEl);
+            if (modal) modal.hide();
+            
+            // Показываем Toast об успехе
+            const toastEl = document.getElementById('successToast');
+            const toast = new bootstrap.Toast(toastEl);
+            toast.show();
+            
+            form.reset(); // Очищаем поля формы
+        });
+    }
+</script>
+</body>
+</html>
